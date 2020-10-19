@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+.searchbar {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+}
+
+.card {
+  width: 15%;
+
+}
+
+
+
