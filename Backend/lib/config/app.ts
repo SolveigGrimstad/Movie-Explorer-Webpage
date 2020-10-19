@@ -4,6 +4,7 @@ import * as mongoose from 'mongoose';
 import environment from "../environment";
 import {CommonRoutes} from "../routes/common_routes"; 
 import {MovieRoutes} from "../routes/movie_routes"; 
+import * as cors from 'cors'
 
 class App {
    public app: express.Application;
@@ -13,6 +14,7 @@ class App {
 
    constructor() {
       this.app = express();
+      this.app.use(cors());
       this.config();
       this.mongoSetup();
       this.common_routes.route(this.app); 

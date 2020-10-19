@@ -7,7 +7,7 @@ class MovieRoutes {
         this.movie_controller = new movieController_1.movieController();
     }
     route(app) {
-        app.get('/api/movies/:id', (req, res) => {
+        app.get('/api/movies/', (req, res) => {
             this.movie_controller.get_movie(req, res);
         });
     }

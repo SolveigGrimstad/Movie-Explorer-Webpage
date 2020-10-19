@@ -10,18 +10,19 @@ export class movieController {
 
 
     public get_movie(req: Request, res: Response) {
-        if (req.params.id) {
-            const movie_filter = { _id: req.params.id };
-            this.movie_service.filterUser(movie_filter, (err: any, movie_data: IMovie) => {
+        /*if (req.params.id) {
+            const movie_filter = { _id: req.params.id };*/
+            this.movie_service.filterUser({}, (err: any, movie_data: IMovie) => {
                 if (err) {
                     mongoError(err, res);
                 } else {
                     successResponse('get movie successfull', movie_data, res);
                 }
             });
+            /*
         } else {
             insufficientParameters(res);
-        }
+        }*/
     }
 
 
