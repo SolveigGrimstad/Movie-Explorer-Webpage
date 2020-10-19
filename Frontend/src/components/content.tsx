@@ -1,17 +1,25 @@
 import React from 'react';
 import Moviebox from './moviebox'
+import '../styling/content.css'
 
-///static/media/avengers.bd2db828.jpg
 
 function Content() {
   return (
     
-    <div>
+    <div className="movie_container">
       
         <Moviebox link={"https://images-na.ssl-images-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg"}/>
         <Moviebox link={"https://i.pinimg.com/originals/cc/f5/30/ccf53081983d347d1b312a5dcf38ba0e.jpg"}/>
-            
-
+        <Moviebox link={"https://images-na.ssl-images-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg"}/>
+        <Moviebox link={"https://i.pinimg.com/originals/cc/f5/30/ccf53081983d347d1b312a5dcf38ba0e.jpg"}/>  
+        <Moviebox link={"https://i.pinimg.com/originals/cc/f5/30/ccf53081983d347d1b312a5dcf38ba0e.jpg"}/>
+        <Moviebox link={"https://images-na.ssl-images-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg"}/>
+        <Moviebox link={"https://i.pinimg.com/originals/cc/f5/30/ccf53081983d347d1b312a5dcf38ba0e.jpg"}/>  
+        <Moviebox link={"https://i.pinimg.com/originals/cc/f5/30/ccf53081983d347d1b312a5dcf38ba0e.jpg"}/>
+        <Moviebox link={"https://images-na.ssl-images-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg"}/>
+        <Moviebox link={"https://i.pinimg.com/originals/cc/f5/30/ccf53081983d347d1b312a5dcf38ba0e.jpg"}/>  
+       
+       
     </div>
   );
 }
