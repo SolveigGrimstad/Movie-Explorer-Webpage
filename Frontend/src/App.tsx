@@ -4,17 +4,43 @@ import Header from './components/header'
 import Footer from './components/footer'
 import Searchbar from './components/searchbar'
 import Content from './components/content'
+import Homepage from './components/homepage'
 import '../src/styling/materialize.css'
 import '../src/styling/materialize.min.css'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Searchbar/>
-      <Content/>
-      <Footer/>
+      <Router>
+        <Header/>
+     
+        
+
+        <Switch>
+
+          <Route path="/allmovies">
+            <Searchbar/>
+            <Content/>
+          </Route>
+
+          <Route path="/">
+            <Homepage/>
+          </Route>
+
+           
+
+        </Switch>
+
+        <Footer/> 
+        
+      </Router>
     
     </div>
   );

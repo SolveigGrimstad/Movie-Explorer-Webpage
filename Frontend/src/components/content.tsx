@@ -1,25 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Moviebox from './moviebox'
+import Sidenav from './sidenav'
 import '../styling/content.css'
+import axios from 'axios'
+
+interface IMovie {
+    title: String,
+    description: String,  
+
+}
 
 
 function Content() {
+    const [movies, setMovies] = useState<IMovie[]>([]);
+
+    useEffect(() => {
+       
+        const getMovies = async() => {
+            const api_url= ("http://localhost:8000/api/movies/");
+            await axios.get(api_url).then(response => {setMovies(response.data.DATA)})
+            
+        }
+        getMovies()
+       
+    })
+
   return (
-    
-    <div className="movie_container">
-      
-        <Moviebox link={"https://images-na.ssl-images-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg"}/>
-        <Moviebox link={"https://i.pinimg.com/originals/cc/f5/30/ccf53081983d347d1b312a5dcf38ba0e.jpg"}/>
-        <Moviebox link={"https://images-na.ssl-images-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg"}/>
-        <Moviebox link={"https://i.pinimg.com/originals/cc/f5/30/ccf53081983d347d1b312a5dcf38ba0e.jpg"}/>  
-        <Moviebox link={"https://i.pinimg.com/originals/cc/f5/30/ccf53081983d347d1b312a5dcf38ba0e.jpg"}/>
-        <Moviebox link={"https://images-na.ssl-images-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg"}/>
-        <Moviebox link={"https://i.pinimg.com/originals/cc/f5/30/ccf53081983d347d1b312a5dcf38ba0e.jpg"}/>  
-        <Moviebox link={"https://i.pinimg.com/originals/cc/f5/30/ccf53081983d347d1b312a5dcf38ba0e.jpg"}/>
-        <Moviebox link={"https://images-na.ssl-images-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg"}/>
-        <Moviebox link={"https://i.pinimg.com/originals/cc/f5/30/ccf53081983d347d1b312a5dcf38ba0e.jpg"}/>  
-       
-       
+    <div>
+        <Sidenav/>
+
+        <div className="movie_container">
+
+            {movies.map((movie )=> {
+                return (<Moviebox title={movie.title} description={movie.description}/>)
+            })}
+
+        </div>
+
     </div>
   );
 }
