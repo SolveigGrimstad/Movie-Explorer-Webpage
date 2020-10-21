@@ -8,9 +8,13 @@
   flex-direction: row;
   align-items: center;
   margin: auto;
+  justify-content: space-between;
+}
+
+.searchbar_buttons {
+  justify-content: space-around;
 }
 
 .card {
   width: 15%;
-
 }

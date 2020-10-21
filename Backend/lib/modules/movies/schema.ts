@@ -1,18 +1,22 @@
-import * as mongoose from 'mongoose';
-import { ModificationNote } from '../common/model';
+import * as mongoose from "mongoose";
+import { ModificationNote } from "../common/model";
 
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-    title: String,
-    year: Number,
-    date_published: String,
-    genre: String,
-    duration: String,
-    country: String,
-    language: String, 
-    director: String,
-    modification_notes: [ModificationNote]
+  title: String,
+  year: String,
+  released: String,
+  duration: String,
+  genre: String,
+  director: String,
+  actors: String,
+  summary: String,
+  language: String,
+  country: String,
+  imageUrl: String,
+  rating: String,
+  modification_notes: [ModificationNote],
 });
 
-export default mongoose.model('movies', schema);
+export default mongoose.model("movies", schema);

@@ -5,13 +5,17 @@ const model_1 = require("../common/model");
 const Schema = mongoose.Schema;
 const schema = new Schema({
     title: String,
-    year: Number,
-    date_published: String,
-    genre: String,
+    year: String,
+    released: String,
     duration: String,
-    country: String,
-    language: String,
+    genre: String,
     director: String,
-    modification_notes: [model_1.ModificationNote]
+    actors: String,
+    summary: String,
+    language: String,
+    country: String,
+    imageUrl: String,
+    rating: String,
+    modification_notes: [model_1.ModificationNote],
 });
-exports.default = mongoose.model('movies', schema);
+exports.default = mongoose.model("movies", schema);
