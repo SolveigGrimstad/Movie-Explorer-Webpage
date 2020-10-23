@@ -17,9 +17,12 @@
     "express": "^4.17.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "^3.4.4",
     "react-tabindex": "^1.0.3",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "typescript": "^3.7.5"
   },
   "scripts": {
@@ -44,6 +47,9 @@
     ]
   },
   "devDependencies": {
-    "@types/jquery": "^3.5.3"
+    "@types/jquery": "^3.5.3",
+    "@types/react-redux": "^7.1.9",
+    "@types/redux": "^3.6.0",
+    "@types/redux-thunk": "^2.1.0"
   }
 }
