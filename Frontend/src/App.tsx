@@ -16,8 +16,11 @@ import { Dispatch } from "redux"
 import { useSelector, shallowEqual, useDispatch } from "react-redux"
 
 
-const App: React.FC = () => {
-  const articles: readonly Imovie[] = useSelector(
+
+
+function App() {
+/*
+  const movies: readonly Imovie[] = useSelector(
     (state: MovieState) => state.movie,
     shallowEqual
   )
@@ -25,12 +28,10 @@ const App: React.FC = () => {
   const dispatch: Dispatch<any> = useDispatch()
 
   const saveMovie = React.useCallback(
-    (article: Imovie) => dispatch(searchMovie(movie)),
+    (movie: Imovie) => dispatch(searchMovie(movie)),
     [dispatch]
   )
-
-
-function App() {
+  */
   return (
     <div className="App">
       <Router>

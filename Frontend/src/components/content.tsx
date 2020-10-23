@@ -55,10 +55,7 @@ function Content() {
 
               <Route path="/movieinfo">
                 <Movieinfo
-                  title={movie.Title}
-                  imageUrl={movie.Poster}
-                  actors={movie.Actors}
-                  rating={movie.Ratings}
+                 
                 />
               </Route>
             </Switch>
