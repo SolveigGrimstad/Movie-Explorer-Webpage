@@ -11,13 +11,23 @@ import "../src/styling/materialize.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 //redux
-import { Article } from "./components/Article"
-import { AddArticle } from "./components/AddArticle"
-import { addArticle, removeArticle } from "./store/actionCreators"
+import {searchMovie} from  "./store/actionCreators"
 import { Dispatch } from "redux"
 import { useSelector, shallowEqual, useDispatch } from "react-redux"
 
 
+const App: React.FC = () => {
+  const articles: readonly Imovie[] = useSelector(
+    (state: MovieState) => state.movie,
+    shallowEqual
+  )
+
+  const dispatch: Dispatch<any> = useDispatch()
+
+  const saveMovie = React.useCallback(
+    (article: Imovie) => dispatch(searchMovie(movie)),
+    [dispatch]
+  )
 
 
 function App() {
