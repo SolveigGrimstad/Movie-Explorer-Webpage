@@ -24,10 +24,7 @@
     "react-scripts": "^3.4.4",
     "react-tabindex": "^1.0.3",
     "redux": "^4.0.5",
-<<<<<<< HEAD
-=======
     "redux-thunk": "^2.3.0",
->>>>>>> origin/redux_setup
     "typescript": "^3.7.5"
   },
   "scripts": {
