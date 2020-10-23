@@ -8,6 +8,7 @@ const Movieinfo = () => {
         setNewPerson(e.currentTarget.value);
 
     const people: Person[] = useSelector((state: AppState) => state.people);
+    const movieId: string = useSelector((state: AppState) => state.movieId);
     const dispatch = useDispatch();
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -22,6 +23,7 @@ const Movieinfo = () => {
 
     return (
         <div>
+          
             <ul>
                 {people.map(person => (
                     <li key={person.id}>

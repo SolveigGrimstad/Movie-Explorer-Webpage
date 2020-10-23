@@ -11,7 +11,6 @@ import "../src/styling/materialize.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 //redux
-import {searchMovie} from  "./store/actionCreators"
 import { Dispatch } from "redux"
 import { useSelector, shallowEqual, useDispatch } from "react-redux"
 
