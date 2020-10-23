@@ -9,19 +9,35 @@ class movieController {
     }
     get_movie(req, res) {
         /*if (req.params.id) {
-            const movie_filter = { _id: req.params.id };*/
+                const movie_filter = { _id: req.params.id };*/
         this.movie_service.filterUser({}, (err, movie_data) => {
             if (err) {
                 service_1.mongoError(err, res);
             }
             else {
-                service_1.successResponse('get movie successfull', movie_data, res);
+                service_1.successResponse("get movie successfull", movie_data, res);
             }
         });
         /*
-    } else {
-        insufficientParameters(res);
-    }*/
+            } else {
+                insufficientParameters(res);
+            }*/
+    }
+    get_id(req, res) {
+        if (req.params.id) {
+            const movie_filter1 = { _id: req.params.id };
+            this.movie_service.filterUser1({}, (err, id_data) => {
+                if (err) {
+                    service_1.mongoError(err, res);
+                }
+                else {
+                    service_1.successResponse("get id successfull", id_data, res);
+                }
+            });
+        }
+        else {
+            service_1.insufficientParameters(res);
+        }
     }
 }
 exports.movieController = movieController;
