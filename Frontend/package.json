@@ -12,9 +12,11 @@
     "@types/node": "^12.12.64",
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.6",
     "axios": "^0.20.0",
     "express": "^4.17.1",
+    "materialize-css": "^1.0.0-rc.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-redux": "^7.2.1",
@@ -22,7 +24,10 @@
     "react-scripts": "^3.4.4",
     "react-tabindex": "^1.0.3",
     "redux": "^4.0.5",
+<<<<<<< HEAD
+=======
     "redux-thunk": "^2.3.0",
+>>>>>>> origin/redux_setup
     "typescript": "^3.7.5"
   },
   "scripts": {

@@ -6,4 +6,9 @@ export default class UserService {
     movies.find(query, callback).limit(24);
     //fetches out 20 movies
   }
+
+  public filterUser1(query: any, callback: any) {
+    movies.findOne(query, callback);
+    //fetches out 20 movies
+  }
 }

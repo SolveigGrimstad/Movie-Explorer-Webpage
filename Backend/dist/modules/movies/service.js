@@ -6,5 +6,9 @@ class UserService {
         schema_1.default.find(query, callback).limit(24);
         //fetches out 20 movies
     }
+    filterUser1(query, callback) {
+        schema_1.default.findOne(query, callback);
+        //fetches out 20 movies
+    }
 }
 exports.default = UserService;
