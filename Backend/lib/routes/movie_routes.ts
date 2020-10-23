@@ -8,8 +8,8 @@ export class MovieRoutes {
     public route(app: Application) {
         
     
-
-        app.get('/api/movies/', (req: Request, res: Response) => {
+//:search parameter 
+        app.get('/api/movies/:search', (req: Request, res: Response) => {
             this.movie_controller.get_movie(req, res);
         });
 
