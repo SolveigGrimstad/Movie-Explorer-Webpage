@@ -13,9 +13,7 @@ function Moviebox(props: any) {
           <i className="material-icons right">more_vert</i>
         </span>
         <p>
-          <li>
-            <Link to="/movieinfo">Trykk her</Link>
-          </li>
+          <Link to="/movieinfo">Trykk her</Link>
         </p>
       </div>
       <div className="card-reveal">

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Moviebox from "./moviebox";
-import Sidenav from "./sidenav";
+import Filternav from "./filternav";
 import Movieinfo from "./movieinfo";
-import "../styling/content.css";
 import axios from "axios";
 import { Switch, Route } from "react-router-dom";
 
@@ -23,6 +22,7 @@ interface IMovie {
 
 function Content() {
   const [movies, setMovies] = useState<IMovie[]>([]);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -36,11 +36,41 @@ function Content() {
 
   return (
     <div>
-      <div className="movie_container">
-        <div className="sidemenu">
-          <Sidenav />
-        </div>
+      <table className="searchbar">
+        <tr>
+          <div className="searchbar_buttons ">
+            <td>
+              {" "}
+              <input placeholder="Search for movie..." />
+            </td>
 
+            <td>
+              <button className="waves-effect deep-purple lighten-1 btn ">
+                Search
+              </button>
+            </td>
+
+            <td>
+              <button
+                onClick={() => setOpen(!open)}
+                className="waves-effect deep-purple lighten-1 btn"
+              >
+                Filter search
+              </button>
+            </td>
+
+            <td>
+              <button className="waves-effect deep-purple lighten-1 btn">
+                Sorty by
+              </button>
+            </td>
+          </div>
+        </tr>
+      </table>
+
+      {open && <Filternav />}
+
+      <div className="movie_container">
         {movies.map((movie) => {
           return (
             <Switch>
