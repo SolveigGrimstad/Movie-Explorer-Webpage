@@ -4,6 +4,9 @@ import Filternav from "./filternav";
 import Movieinfo from "./movieinfo";
 import axios from "axios";
 import { Switch, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
+import "../updateGenreFilter";
+import { AppState } from "../store/store";
 
 interface IMovie {
   Title: String;
@@ -24,10 +27,15 @@ function Content() {
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [open, setOpen] = useState(false);
 
+  const filters: string[] = useSelector((state: AppState) => state.filter);
+  //console.log(filters);
+  const params = new URLSearchParams([["filter", filters.join()]]);
+  //list of comma
+
   useEffect(() => {
     const getMovies = async () => {
       const api_url = "http://localhost:8000/api/movies/";
-      await axios.get(api_url).then((response) => {
+      await axios.get(api_url, { params }).then((response) => {
         setMovies(response.data.DATA);
       });
     };
@@ -55,7 +63,7 @@ function Content() {
                 onClick={() => setOpen(!open)}
                 className="waves-effect deep-purple lighten-1 btn"
               >
-                Filter search
+                Filter
               </button>
             </td>
 
