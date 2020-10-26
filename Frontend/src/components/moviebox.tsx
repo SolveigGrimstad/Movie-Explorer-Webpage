@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { prependListener } from "cluster";
 
 function Moviebox(props: any) {
   return (
@@ -21,8 +22,10 @@ function Moviebox(props: any) {
           {props.title}
           <i className="material-icons right activator">close</i>
         </span>
-        <p>{props.actors}</p>
-        <h4>{props.rating}</h4>
+        {props.actors}
+        <h5>{props.rating}</h5>
+        <p>{props.summary}</p>
+
         <i className="material-icons star"></i>
       </div>
     </div>

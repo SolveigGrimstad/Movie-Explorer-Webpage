@@ -80,13 +80,12 @@ function Content() {
                   imageUrl={movie.Poster}
                   actors={movie.Actors}
                   rating={movie.Ratings}
+                  summary={movie.Plot}
                 />
               </Route>
 
               <Route path="/movieinfo">
-                <Movieinfo
-                 
-                />
+                <Movieinfo />
               </Route>
             </Switch>
           );
