@@ -4,6 +4,7 @@ import Filternav from "./filternav";
 import Movieinfo from "./movieinfo";
 import axios from "axios";
 import { Switch, Route } from "react-router-dom";
+import e from "express";
 
 interface IMovie {
   Title: String;
@@ -23,13 +24,21 @@ interface IMovie {
 function Content() {
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState<string>("");
 
   useEffect(() => {
     const getMovies = async () => {
-      const api_url = "http://localhost:8000/api/movies/";
+     const api_url = "http://localhost:8000/api/movies";
+     if(title=="") {
       await axios.get(api_url).then((response) => {
         setMovies(response.data.DATA);
       });
+     } 
+     else {
+      await axios.get(`http://localhost:8000/api/search/${title}`).then((response) => {
+        setMovies(response.data.DATA);
+      });
+     }
     };
     getMovies();
   });
@@ -41,13 +50,7 @@ function Content() {
           <div className="searchbar_buttons ">
             <td>
               {" "}
-              <input placeholder="Search for movie..." />
-            </td>
-
-            <td>
-              <button className="waves-effect deep-purple lighten-1 btn ">
-                Search
-              </button>
+              <input name ="search" placeholder="Search for movie..." value={title} onChange={(e)=> setTitle(e.target.value)}/>
             </td>
 
             <td>

@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const model_1 = require("../common/model");
 const Schema = mongoose.Schema;
 const schema = new Schema({
-    title: String,
+    Title: String,
     year: String,
     released: String,
     duration: String,

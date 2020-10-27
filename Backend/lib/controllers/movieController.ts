@@ -13,34 +13,25 @@ export class movieController {
   private movie_service: MovieService = new MovieService();
 
   public get_movie(req: Request, res: Response) {
-    /*if (req.params.id) {
-            const movie_filter = { _id: req.params.id };*/
-    this.movie_service.filterUser({}, (err: any, movie_data: IMovie) => {
+    this.movie_service.filterMovie({}, (err: any, movie_data: IMovie) => {
       if (err) {
         mongoError(err, res);
       } else {
         successResponse("get movie successfull", movie_data, res);
       }
     });
-
-    /*
-        } else {
-            insufficientParameters(res);
-        }*/
   }
 
-  public get_id(req: Request, res: Response) {
-    if (req.params.id) {
-      const movie_filter1 = { _id: req.params.id };
-      this.movie_service.filterUser1({}, (err: any, id_data: IMovie) => {
+  public search_movies(req: Request, res: Response) {
+      const title = req.params.title;
+      const movie_search = { Title : {$regex: title, $options: "i"}};
+      this.movie_service.movieSearch(movie_search, (err: any, title_data: IMovie) => {
         if (err) {
           mongoError(err, res);
         } else {
-          successResponse("get id successfull", id_data, res);
+          successResponse("get title successfull", title_data, res);
         }
       });
-    } else {
-      insufficientParameters(res);
-    }
+     
   }
 }

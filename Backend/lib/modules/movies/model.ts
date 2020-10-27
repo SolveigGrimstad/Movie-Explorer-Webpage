@@ -2,7 +2,7 @@ import { ModificationNote } from "../common/model";
 
 export interface IMovie {
   _id?: String;
-  title: String;
+  Title: String;
   year: String;
   released: String;
   duration: String;

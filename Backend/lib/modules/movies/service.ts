@@ -2,13 +2,13 @@ import { IMovie } from "./model";
 import movies from "./schema";
 
 export default class UserService {
-  public filterUser(query: any, callback: any) {
+  public filterMovie(query: any, callback: any) {
     movies.find(query, callback).limit(24);
-    //fetches out 20 movies
+    //fetches out 24 movies
   }
 
-  public filterUser1(query: any, callback: any) {
-    movies.findOne(query, callback);
-    //fetches out 20 movies
+  public movieSearch(query: any, callback: any) {
+    movies.find(query, callback).limit(24);
+   
   }
 }

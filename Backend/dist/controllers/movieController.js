@@ -8,9 +8,7 @@ class movieController {
         this.movie_service = new service_2.default();
     }
     get_movie(req, res) {
-        /*if (req.params.id) {
-                const movie_filter = { _id: req.params.id };*/
-        this.movie_service.filterUser({}, (err, movie_data) => {
+        this.movie_service.filterMovie({}, (err, movie_data) => {
             if (err) {
                 service_1.mongoError(err, res);
             }
@@ -18,26 +16,18 @@ class movieController {
                 service_1.successResponse("get movie successfull", movie_data, res);
             }
         });
-        /*
-            } else {
-                insufficientParameters(res);
-            }*/
     }
-    get_id(req, res) {
-        if (req.params.id) {
-            const movie_filter1 = { _id: req.params.id };
-            this.movie_service.filterUser1({}, (err, id_data) => {
-                if (err) {
-                    service_1.mongoError(err, res);
-                }
-                else {
-                    service_1.successResponse("get id successfull", id_data, res);
-                }
-            });
-        }
-        else {
-            service_1.insufficientParameters(res);
-        }
+    search_movies(req, res) {
+        const title = req.params.title;
+        const movie_search = { Title: { $regex: title, $options: "i" } };
+        this.movie_service.movieSearch(movie_search, (err, title_data) => {
+            if (err) {
+                service_1.mongoError(err, res);
+            }
+            else {
+                service_1.successResponse("get title successfull", title_data, res);
+            }
+        });
     }
 }
 exports.movieController = movieController;

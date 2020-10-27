@@ -2,13 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const schema_1 = require("./schema");
 class UserService {
-    filterUser(query, callback) {
+    filterMovie(query, callback) {
         schema_1.default.find(query, callback).limit(24);
-        //fetches out 20 movies
+        //fetches out 24 movies
     }
-    filterUser1(query, callback) {
-        schema_1.default.findOne(query, callback);
-        //fetches out 20 movies
+    movieSearch(query, callback) {
+        schema_1.default.find(query, callback).limit(24);
     }
 }
 exports.default = UserService;

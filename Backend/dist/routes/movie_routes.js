@@ -10,8 +10,13 @@ class MovieRoutes {
         app.get("/api/movies/", (req, res) => {
             this.movie_controller.get_movie(req, res);
         });
-        app.get("/api/movieinfo/:id", (req, res) => {
-            this.movie_controller.get_id(req, res);
+        /*
+        app.get("/api/movieinfo/:id", (req: Request, res: Response) => {
+          this.movie_controller.get_id(req, res);
+        });
+        */
+        app.get("/api/search/:title", (req, res) => {
+            this.movie_controller.search_movies(req, res);
         });
     }
 }
