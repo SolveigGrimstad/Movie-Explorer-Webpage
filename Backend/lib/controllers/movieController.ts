@@ -15,7 +15,7 @@ export class movieController {
   public get_movie(req: Request, res: Response) {
     if (req.query.filter) {
       let filters = req.query.filter.toString().split(",");
-      this.movie_service.filterUser(filters, (err: any, movie_data: IMovie) => {
+      this.movie_service.filterMovie(filters, (err: any, movie_data: IMovie) => {
         if (err) {
           mongoError(err, res);
         } else {
@@ -24,7 +24,7 @@ export class movieController {
       });
     } else {
       //console.log("without filter");
-      this.movie_service.filterUser([], (err: any, movie_data: IMovie) => {
+      this.movie_service.filterMovie([], (err: any, movie_data: IMovie) => {
         if (err) {
           mongoError(err, res);
         } else {

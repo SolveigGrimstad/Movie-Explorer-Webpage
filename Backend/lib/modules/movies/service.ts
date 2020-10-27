@@ -8,7 +8,7 @@ export default class UserService {
     //fetches out 24 movies
 */
 
-  public filterUser(query: any, callback: any) {
+  public filterMovie(query: any, callback: any) {
     if (query.length > 0) {
       //if there are some genres that are requested
       let filterlist = query.map((value) => ({
