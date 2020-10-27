@@ -13,13 +13,30 @@ export class movieController {
   private movie_service: MovieService = new MovieService();
 
   public get_movie(req: Request, res: Response) {
-    this.movie_service.filterMovie({}, (err: any, movie_data: IMovie) => {
-      if (err) {
-        mongoError(err, res);
-      } else {
-        successResponse("get movie successfull", movie_data, res);
-      }
-    });
+    if (req.query.filter) {
+      let filters = req.query.filter.toString().split(",");
+      this.movie_service.filterUser(filters, (err: any, movie_data: IMovie) => {
+        if (err) {
+          mongoError(err, res);
+        } else {
+          successResponse("get movie successfull", movie_data, res);
+        }
+      });
+    } else {
+      //console.log("without filter");
+      this.movie_service.filterUser([], (err: any, movie_data: IMovie) => {
+        if (err) {
+          mongoError(err, res);
+        } else {
+          successResponse("get movie successfull", movie_data, res);
+        }
+      });
+    }
+
+    /*
+        } else {
+            insufficientParameters(res);
+        }*/
   }
 
   public search_movies(req: Request, res: Response) {

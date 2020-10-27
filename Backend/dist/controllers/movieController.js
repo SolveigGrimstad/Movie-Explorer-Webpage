@@ -8,14 +8,32 @@ class movieController {
         this.movie_service = new service_2.default();
     }
     get_movie(req, res) {
-        this.movie_service.filterMovie({}, (err, movie_data) => {
-            if (err) {
-                service_1.mongoError(err, res);
-            }
-            else {
-                service_1.successResponse("get movie successfull", movie_data, res);
-            }
-        });
+        if (req.query.filter) {
+            let filters = req.query.filter.toString().split(",");
+            this.movie_service.filterUser(filters, (err, movie_data) => {
+                if (err) {
+                    service_1.mongoError(err, res);
+                }
+                else {
+                    service_1.successResponse("get movie successfull", movie_data, res);
+                }
+            });
+        }
+        else {
+            //console.log("without filter");
+            this.movie_service.filterUser([], (err, movie_data) => {
+                if (err) {
+                    service_1.mongoError(err, res);
+                }
+                else {
+                    service_1.successResponse("get movie successfull", movie_data, res);
+                }
+            });
+        }
+        /*
+            } else {
+                insufficientParameters(res);
+            }*/
     }
     search_movies(req, res) {
         const title = req.params.title;

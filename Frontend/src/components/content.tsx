@@ -5,6 +5,9 @@ import Movieinfo from "./movieinfo";
 import axios from "axios";
 import { Switch, Route } from "react-router-dom";
 import e from "express";
+import { useSelector } from "react-redux";
+import "../updateGenreFilter";
+import { AppState } from "../store/store";
 
 interface IMovie {
   Title: String;
@@ -26,11 +29,16 @@ function Content() {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState<string>("");
 
+  const filters: string[] = useSelector((state: AppState) => state.filter);
+  //console.log(filters);
+  const params = new URLSearchParams([["filter", filters.join()]]);
+  //list of comma
+
   useEffect(() => {
     const getMovies = async () => {
      const api_url = "http://localhost:8000/api/movies";
      if(title=="") {
-      await axios.get(api_url).then((response) => {
+      await axios.get(api_url , { params }).then((response) => {
         setMovies(response.data.DATA);
       });
      } 
@@ -58,7 +66,7 @@ function Content() {
                 onClick={() => setOpen(!open)}
                 className="waves-effect deep-purple lighten-1 btn"
               >
-                Filter search
+                Filter
               </button>
             </td>
 
@@ -83,18 +91,18 @@ function Content() {
                   imageUrl={movie.Poster}
                   actors={movie.Actors}
                   rating={movie.Ratings}
+                  summary={movie.Plot}
                 />
               </Route>
 
               <Route path="/movieinfo">
-                <Movieinfo
-                 
-                />
+                <Movieinfo />
               </Route>
             </Switch>
           );
         })}
       </div>
+      
     </div>
   );
 }
