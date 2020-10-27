@@ -51,4 +51,8 @@ export class movieController {
       });
      
   }
+
+  public sort_movies(req: Request, res: Response){
+    
+  }
 }

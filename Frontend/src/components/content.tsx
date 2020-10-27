@@ -8,6 +8,7 @@ import e from "express";
 import { useSelector } from "react-redux";
 import "../updateGenreFilter";
 import { AppState } from "../store/store";
+//import M from "materialize-css/dist/js/materialize.min.js"
 
 interface IMovie {
   Title: String;
@@ -50,7 +51,16 @@ function Content() {
     };
     getMovies();
   });
+/*
+  useEffect(() => {
+    const dropdown = () => {
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems, {});    
+}
+    dropdown();
+}, [])
 
+*/
   return (
     <div>
       <table className="searchbar">
@@ -71,8 +81,18 @@ function Content() {
             </td>
 
             <td>
+
               <button className="waves-effect deep-purple lighten-1 btn">
                 Sorty by
+                <div>
+        <a id="sorting-button" className='dropdown-trigger btn #00b8d4 cyan accent-4' href='#' data-target='dropdown1'>Sort 
+        <i className="material-icons">arrow_drop_down</i></a>
+        <ul id='dropdown1' className='dropdown-content'>
+            <li><a href="#!">Name</a></li>
+            <li><a href="#!">Price</a></li>
+            <li><a href="#!">Stars</a></li>
+        </ul>     
+    </div>
               </button>
             </td>
           </div>

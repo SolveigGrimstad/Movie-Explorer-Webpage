@@ -10,7 +10,7 @@ class movieController {
     get_movie(req, res) {
         if (req.query.filter) {
             let filters = req.query.filter.toString().split(",");
-            this.movie_service.filterUser(filters, (err, movie_data) => {
+            this.movie_service.filterMovie(filters, (err, movie_data) => {
                 if (err) {
                     service_1.mongoError(err, res);
                 }
@@ -21,7 +21,7 @@ class movieController {
         }
         else {
             //console.log("without filter");
-            this.movie_service.filterUser([], (err, movie_data) => {
+            this.movie_service.filterMovie([], (err, movie_data) => {
                 if (err) {
                     service_1.mongoError(err, res);
                 }
@@ -46,6 +46,8 @@ class movieController {
                 service_1.successResponse("get title successfull", title_data, res);
             }
         });
+    }
+    sort_movies(req, res) {
     }
 }
 exports.movieController = movieController;

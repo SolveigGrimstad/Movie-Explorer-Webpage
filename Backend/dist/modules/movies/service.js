@@ -7,7 +7,7 @@ class UserService {
       movies.find(query, callback).limit(24);
       //fetches out 24 movies
   */
-    filterUser(query, callback) {
+    filterMovie(query, callback) {
         if (query.length > 0) {
             //if there are some genres that are requested
             let filterlist = query.map((value) => ({
