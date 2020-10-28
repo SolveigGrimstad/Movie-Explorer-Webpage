@@ -40,6 +40,14 @@ export function updateGenreFilter(newFilter: string = "") {
     payload: newFilter,
   };
 }
+/*
+export function pagination() {
+  return {
+    type: UPDATE_PAGE, 
+    payload: 
+  }
+}
+*/
 
 type Actions = ReturnType<typeof addPerson> | ReturnType<typeof removePerson>;
 type MovieActions = ReturnType<typeof setMovieId>;

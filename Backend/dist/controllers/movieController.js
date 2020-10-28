@@ -8,9 +8,11 @@ class movieController {
         this.movie_service = new service_2.default();
     }
     get_movie(req, res) {
+        const page = Math.max(0, parseInt(req.params.page));
+        const title = req.params.title;
         if (req.query.filter) {
             let filters = req.query.filter.toString().split(",");
-            this.movie_service.filterMovie(filters, (err, movie_data) => {
+            this.movie_service.filterMovie(filters, page, (err, movie_data) => {
                 if (err) {
                     service_1.mongoError(err, res);
                 }
@@ -21,7 +23,7 @@ class movieController {
         }
         else {
             //console.log("without filter");
-            this.movie_service.filterMovie([], (err, movie_data) => {
+            this.movie_service.filterMovie([], page, (err, movie_data) => {
                 if (err) {
                     service_1.mongoError(err, res);
                 }
@@ -37,8 +39,9 @@ class movieController {
     }
     search_movies(req, res) {
         const title = req.params.title;
+        const page = Math.max(0, parseInt(req.params.page));
         const movie_search = { Title: { $regex: title, $options: "i" } };
-        this.movie_service.movieSearch(movie_search, (err, title_data) => {
+        this.movie_service.movieSearch(movie_search, page, (err, title_data) => {
             if (err) {
                 service_1.mongoError(err, res);
             }
@@ -46,8 +49,6 @@ class movieController {
                 service_1.successResponse("get title successfull", title_data, res);
             }
         });
-    }
-    sort_movies(req, res) {
     }
 }
 exports.movieController = movieController;

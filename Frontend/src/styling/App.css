@@ -39,7 +39,11 @@ Moviebox {
   margin-right: 5%;
 }
 
-[type="checkbox"]:checked + span:not(.lever):before {
-  border-right: 2px solid red;
-  border-bottom: 2px solid red;
+.pagination {
+  text-align: center;
+}
+
+.homepageHeader {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
