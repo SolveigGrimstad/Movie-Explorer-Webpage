@@ -31,6 +31,18 @@ export class MovieRoutes {
       res.json({ message: err });
     }
   });
+
+  app.put('/:moiveid', async (req, res) => {
+    try {
+      const updatedRating = await Movie.updateOne(
+        { _id: req.params.movieid },
+        { $inc: { starRating: -1 } }
+      );
+      res.json(updatedRating);
+    } catch (err) {
+      res.json({ message: err });
+    }
+  });
   }
 
 
