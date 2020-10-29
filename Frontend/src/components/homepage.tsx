@@ -6,10 +6,15 @@ import "../styling/App.css";
 import "../styling/homepage.css";
 
 function Homepage() {
-  document.addEventListener("DOMContentLoaded", function () {
+  const test = () => {
     var elems = document.querySelectorAll(".slider");
     var instances = M.Slider.init(elems);
-  });
+  };
+  //document.addEventListener("DOMContentLoaded", test);
+
+  useEffect(() => {
+    test();
+  }, []);
 
   return (
     <div>

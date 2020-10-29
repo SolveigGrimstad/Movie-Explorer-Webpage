@@ -140,24 +140,40 @@ function Content() {
       </table>
 
       {open && <Filternav />}
-
       <ul className="pagination">
-        <li className="waves-effect">
-          <a href="#!">
-            <i className="material-icons" onClick={() => setPage(page - 1)}>
-              chevron_left
-            </i>
-          </a>
-        </li>
-
-        <li className="waves-effect">
-          <a href="#!">
-            <i className="material-icons" onClick={() => setPage(page + 1)}>
-              {" "}
-              chevron_right
-            </i>
-          </a>
-        </li>
+        {page > 1 && (
+          <li className="hei">
+            <a href="#!">
+              <i
+                className={
+                  page == 1
+                    ? "disabled material-icons"
+                    : "waves-effect material-icons"
+                }
+                onClick={() => setPage(page - 1)}
+              >
+                chevron_left
+              </i>
+            </a>
+          </li>
+        )}
+        {movies.length >= 24 && (
+          <li className="heo">
+            <a href="#!">
+              <i
+                className={
+                  movies.length < 24
+                    ? "disabled material-icons"
+                    : "waves-effect material-icons"
+                }
+                onClick={() => setPage(page + 1)}
+              >
+                {" "}
+                chevron_right
+              </i>
+            </a>
+          </li>
+        )}
       </ul>
 
       <div className="movie_container">
