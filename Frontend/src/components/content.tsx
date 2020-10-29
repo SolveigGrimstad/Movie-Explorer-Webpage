@@ -34,21 +34,26 @@ function Content() {
     setPage(1);
     //sets the page to be page nr 1, when user search
   };
+  const [sort, setSort] = useState("Rating");
+
 
   const filters: string[] = useSelector((state: AppState) => state.filter);
   //console.log(filters);
-  const params = new URLSearchParams([["filter", filters.join()]]);
+  const params = new URLSearchParams([["filter", filters.join()],["sort", sort]]); //Sort inni her også
   //list of comma
 
   const [page, setPage] = useState(1);
 
+
+  
+
   useEffect(() => {
-    console.log(title);
+   // console.log(title);
     const getMovies = async () => {
       const api_url = "http://localhost:8000/api/movies/" + page;
       if (title == "") {
         //if the search field is empty, shows all the movies
-        await axios.get(api_url, { params }).then((response) => {
+        await axios.get(api_url, { params } ).then((response) => {
           setMovies(response.data.DATA);
         });
       } else {
@@ -109,13 +114,13 @@ function Content() {
                 </a>
                 <ul id="dropdown1" className="dropdown-content ">
                   <li>
-                    <a href="#!">Name</a>
+                    <a href="#!" onClick={()=> setSort("Rating")}>Rating</a>
                   </li>
                   <li>
-                    <a href="#!">Price</a>
+                    <a href="#!" onClick={()=> setSort("Year")}>Year</a>
                   </li>
                   <li>
-                    <a href="#!">Stars</a>
+                    <a href="#!" onClick={()=> setSort("Alphabetic")}>Alphabetic</a>
                   </li>
                 </ul>
               </div>

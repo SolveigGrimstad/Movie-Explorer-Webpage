@@ -20,7 +20,17 @@ class movieController {
                     service_1.successResponse("get movie successfull", movie_data, res);
                 }
             });
+        } /*else if (req.query.sort) {
+          this.movie_service.sortMovies([], (err: any, title_data: IMovie) => {
+            if (err) {
+              mongoError(err, res);
+            } else {
+              successResponse("get title successfull", title_data, res);
+            }
+          });
         }
+    
+        }*/
         else {
             //console.log("without filter");
             this.movie_service.filterMovie([], page, (err, movie_data) => {
@@ -51,7 +61,8 @@ class movieController {
         });
     }
     sort_movies(req, res) {
-        this.movie_service.sortMovies([], (err, title_data) => {
+        const sort = req.params.sort;
+        this.movie_service.sortMovies(sort, (err, title_data) => {
             if (err) {
                 service_1.mongoError(err, res);
             }

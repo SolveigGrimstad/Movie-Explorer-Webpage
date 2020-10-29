@@ -53,7 +53,20 @@ export default class UserService {
       const movies = await Movie.paginate }*/
   }
 
-  public sortMovies(query: any, callback: any) {
-    movies.find({}, callback).sort({ Ratings: -1 }).limit(24);
+
+  public sortMovies(req: any, callback: any) {
+    if(req.params.sort == "Rating"){
+      movies.find({}, callback).sort({ Ratings: -1 }).limit(24);
+      console.log("dette funker")
+    }else if(req.params.sort == "Year"){
+      movies.find({}, callback).sort({Year: -1}).limit(24);
+    }else if(req.params.sort =="Alphabetic"){
+      movies.find({}, callback).sort({Title : -1}).limit(24); 
+    } else {
+      movies.find({}, callback).sort({ Ratings: -1 }).limit(24);
+    
+
+    }
+    
   }
 }

@@ -11,6 +11,7 @@ export class movieController {
     const page = Math.max(0, parseInt(req.params.page));
     //const title = req.params.title;
 
+
     if (req.query.filter) {
       let filters = req.query.filter.toString().split(",");
       this.movie_service.filterMovie(
@@ -24,7 +25,18 @@ export class movieController {
           }
         }
       );
-    } else {
+    } /*else if (req.query.sort) {
+      const sort = req.params.sort; 
+      this.movie_service.sortMovies(sort, (err: any, title_data: IMovie) => {
+        if (err) {
+          mongoError(err, res);
+        } else {
+          successResponse("get title successfull", title_data, res);
+        }
+      });
+    }
+
+    }*/else {
       //console.log("without filter");
       this.movie_service.filterMovie(
         [],
@@ -64,7 +76,9 @@ export class movieController {
   }
 
   public sort_movies(req: Request, res: Response) {
-    this.movie_service.sortMovies([], (err: any, title_data: IMovie) => {
+    const sort = req.params.sort; 
+
+    this.movie_service.sortMovies(sort, (err: any, title_data: IMovie) => {
       if (err) {
         mongoError(err, res);
       } else {
