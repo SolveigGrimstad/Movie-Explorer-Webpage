@@ -1,7 +1,7 @@
 import { Application, Request, Response } from "express";
 import { movieController } from "../controllers/movieController";
 
-const rating  = require('../modules/movies/schema');
+const Movie  = require('../modules/movies/schema');
 
 export class MovieRoutes {
   private movie_controller: movieController = new movieController();
@@ -20,10 +20,10 @@ export class MovieRoutes {
   });
 
 */
-  app.put('/:starRating', async (req, res) => {
+  app.put('/:moiveid', async (req, res) => {
     try {
-      const updatedRating = await rating.updateOne(
-        { _id: req.params.id },
+      const updatedRating = await Movie.updateOne(
+        { _id: req.params.movieid },
         { $inc: { starRating: 1 } }
       );
       res.json(updatedRating);

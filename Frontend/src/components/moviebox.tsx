@@ -9,6 +9,7 @@ import ThumbUp from '@material-ui/icons/ThumbUp'
 import { ThumbUpSharp } from "@material-ui/icons";
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import { addLike, removeLike } from "../store/store";
 
 
 
@@ -22,10 +23,10 @@ function Moviebox(props: any) {
     console.log("halooo");
     
     if(color==false){
-      //Trekker fra en like i databasen 
+      removeLike(-1)
     }
     else{
-      //Legger til en like i databasen 
+      addLike(1)
     }
 
 
