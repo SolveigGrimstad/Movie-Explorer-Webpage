@@ -9,7 +9,7 @@ class movieController {
     }
     get_movie(req, res) {
         const page = Math.max(0, parseInt(req.params.page));
-        const title = req.params.title;
+        //const title = req.params.title;
         if (req.query.filter) {
             let filters = req.query.filter.toString().split(",");
             this.movie_service.filterMovie(filters, page, (err, movie_data) => {
