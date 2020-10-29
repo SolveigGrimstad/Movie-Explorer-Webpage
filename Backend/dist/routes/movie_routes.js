@@ -18,6 +18,9 @@ class MovieRoutes {
         app.get("/api/search/:title/:page/", (req, res) => {
             this.movie_controller.search_movies(req, res);
         });
+        app.get("/api/sort/", (req, res) => {
+            this.movie_controller.sort_movies(req, res);
+        });
     }
 }
 exports.MovieRoutes = MovieRoutes;

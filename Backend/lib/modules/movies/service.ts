@@ -52,4 +52,8 @@ export default class UserService {
     try {
       const movies = await Movie.paginate }*/
   }
+
+  public sortMovies(query: any, callback: any) {
+    movies.find({}, callback).sort({ Ratings: -1 }).limit(24);
+  }
 }

@@ -50,5 +50,15 @@ class movieController {
             }
         });
     }
+    sort_movies(req, res) {
+        this.movie_service.sortMovies([], (err, title_data) => {
+            if (err) {
+                service_1.mongoError(err, res);
+            }
+            else {
+                service_1.successResponse("get title successfull", title_data, res);
+            }
+        });
+    }
 }
 exports.movieController = movieController;

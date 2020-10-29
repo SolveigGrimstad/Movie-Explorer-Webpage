@@ -44,5 +44,8 @@ class UserService {
         try {
           const movies = await Movie.paginate }*/
     }
+    sortMovies(query, callback) {
+        schema_1.default.find({}, callback).sort({ Ratings: -1 }).limit(24);
+    }
 }
 exports.default = UserService;

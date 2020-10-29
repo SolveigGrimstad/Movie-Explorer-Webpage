@@ -100,14 +100,14 @@ function Content() {
               <div>
                 <a
                   id="sorting-button"
-                  className="dropdown-trigger btn #00b8d4 cyan accent-4"
+                  className="dropdown-trigger deep-purple lighten-1 btn"
                   href="#"
                   data-target="dropdown1"
                 >
                   Sort
                   <i className="material-icons">arrow_drop_down</i>
                 </a>
-                <ul id="dropdown1" className="dropdown-content">
+                <ul id="dropdown1" className="dropdown-content ">
                   <li>
                     <a href="#!">Name</a>
                   </li>
