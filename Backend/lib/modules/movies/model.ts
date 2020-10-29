@@ -14,5 +14,6 @@ export interface IMovie {
   country: String;
   imageUrl: String;
   rating: String;
+  starRating: Number;
   modification_notes: ModificationNote[];
 }

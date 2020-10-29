@@ -11,4 +11,9 @@ export default class UserService {
     movies.findOne(query, callback);
     //fetches out 20 movies
   }
+
+  public updateUser(movie_params: IMovie, callback: any) {
+    const query = { _id: movie_params._id };
+    movies.findOneAndUpdate(query, movie_params, callback);
+}
 }

@@ -16,7 +16,12 @@ const schema = new Schema({
   country: String,
   imageUrl: String,
   rating: String,
+  starRating: Number,
   modification_notes: [ModificationNote],
+  
+
+
 });
+
 
 export default mongoose.model("movies", schema);
