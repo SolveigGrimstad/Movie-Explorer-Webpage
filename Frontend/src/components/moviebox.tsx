@@ -4,17 +4,13 @@ import { prependListener } from "cluster";
 import Star from "../components/star";
 import Heart from "../components/heart";
 import starRatings from "./starRatings";
-//import IconButton from '@material-ui/core/IconButton';
-//import ThumbUp from '@material-ui/icons/ThumbUp'
-//import { ThumbUpSharp } from "@material-ui/icons";
-//import FavoriteIcon from '@material-ui/icons/Favorite';
-//import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import { addLike, removeLike } from "../store/store";
+import axios from 'axios';
 
 
 
 function Moviebox(props: any) {
 
+  const [hearts, setHearts] = useState<number>(props.starRating);
 
 
   //hanldeclik vil ikke bli kalt på nede i star
@@ -22,11 +18,14 @@ function Moviebox(props: any) {
     setColor (!color);
     console.log("halooo");
     
-    if(color==false){
-      removeLike(-1)
+    if(color==true){
+      axios.put(`http://localhost:8000/api/dislike/${props.id}`);
+
+      setHearts(hearts - 1);
     }
     else{
-      addLike(1)
+      axios.put(`http://localhost:8000/api/like/${props.id}`);
+      setHearts(hearts + 1);
     }
 
 
@@ -59,22 +58,18 @@ function Moviebox(props: any) {
         </span>
        
         {props.actors}
-        {/*<Star isYellow={false} value={1} size={100} onclick={() => handleClick(isYellow(true))} />*/}
        
-        <div className="divHeart" onClick = {handleClick} >
-        <Heart isRed={color}  size={35} />
-        </div>
+       
        
         
         <div className = "card-star">
         
+        <span className="divHeart" onClick = {handleClick} >
+        <Heart isRed={color}  size={35} />
+        </span>
         
+        <p>Antall som anbefaler denne filmen: {hearts}</p> 
         
-        <p>Antall som likte denne filmen: {props.starRating}</p> 
-        {props.starRating}
-
-         {/*<StarRating sender inn average raating/>*/}
-
          </div>
        
         <h5>{props.rating}</h5>

@@ -6,6 +6,7 @@ import axios from "axios";
 import { Switch, Route } from "react-router-dom";
 
 interface IMovie {
+  _id: String;
   Title: String;
   Year: String;
   Released: String;
@@ -33,7 +34,7 @@ function Content() {
       });
     };
     getMovies();
-  });
+  }, []);
 
   return (
     <div>
@@ -83,6 +84,7 @@ function Content() {
                   rating={movie.Ratings}
                   summary={movie.Plot}
                   starRating={movie.starRating}
+                  id={movie._id}
                 />
               </Route>
 
