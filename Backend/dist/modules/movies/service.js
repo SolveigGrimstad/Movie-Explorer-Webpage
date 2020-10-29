@@ -9,6 +9,7 @@ class UserService {
   */
     filterMovie(query, page, callback) {
         const perPage = 24;
+        //const sort = req.params.sort; 
         if (query.length > 0) {
             //if there are some genres that are requested
             let filterlist = query.map((value) => ({
@@ -18,6 +19,7 @@ class UserService {
             schema_1.default
                 .find({ $and: filterlist }, callback)
                 .skip(perPage * (page - 1))
+                //.sort(sort)
                 .limit(perPage);
             //.then((movies) => res.json(movies));
             //finds every object that satisfies all the genre objects, AND operator
@@ -26,13 +28,10 @@ class UserService {
             schema_1.default
                 .find({}, callback)
                 .skip(perPage * (page - 1))
+                // .sort(sort)
                 .limit(perPage);
             //if not, finds all the movies
         }
-        //movies
-        // .find({ Genre: { $regex: new RegExp("Adventure", "i") } }, callback)
-        //  .limit(24);
-        //fetches out 20 movies
     }
     movieSearch(query, page, callback) {
         const perPage = 24;
@@ -48,17 +47,6 @@ class UserService {
         const sort = req.params.sort;
         schema_1.default.find({}, callback).sort(sort).limit(24);
         console.log("dette funker");
-        /*
-      }else if(req.params.sort == "Year"){
-        movies.find({}, callback).sort({Year: -1}).limit(24);
-      }else if(req.params.sort =="Alphabetic"){
-        movies.find({}, callback).sort({Title : -1}).limit(24);
-      } else {
-        movies.find({}, callback).sort({ Ratings: -1 }).limit(24);
-      
-  
-      }
-      */
     }
 }
 exports.default = UserService;

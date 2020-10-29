@@ -114,7 +114,7 @@ function Content() {
                 </a>
                 <ul id="dropdown1" className="dropdown-content ">
                   <li>
-                    <a href="#!" onClick={()=> setSort("Rating")}>Rating</a>
+                    <a href="#!" onClick={()=>setSort("Rating")}>Rating</a>
                   </li>
                   <li>
                     <a href="#!" onClick={()=> setSort("Year")}>Year</a>

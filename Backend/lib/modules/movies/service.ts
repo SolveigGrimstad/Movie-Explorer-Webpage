@@ -10,8 +10,9 @@ export default class UserService {
     //fetches out 24 movies
 */
 
-  public filterMovie(query: any, page: number, callback: any) {
+  public filterMovie( query: any, page: number, callback: any) {
     const perPage = 24;
+    //const sort = req.params.sort; 
 
     if (query.length > 0) {
       //if there are some genres that are requested
@@ -21,8 +22,10 @@ export default class UserService {
       //makes a list for every genre object. Checks the Genre-field in the database
 
       movies
-        .find({ $and: filterlist }, callback)
+        .find({ $and: filterlist },
+          callback)
         .skip(perPage * (page - 1))
+       //.sort(sort)
         .limit(perPage);
 
       //.then((movies) => res.json(movies));
@@ -31,14 +34,11 @@ export default class UserService {
       movies
         .find({}, callback)
         .skip(perPage * (page - 1))
+       // .sort(sort)
         .limit(perPage);
       //if not, finds all the movies
     }
 
-    //movies
-    // .find({ Genre: { $regex: new RegExp("Adventure", "i") } }, callback)
-    //  .limit(24);
-    //fetches out 20 movies
   }
 
   public movieSearch(query: any, page: number, callback: any) {
@@ -58,16 +58,6 @@ export default class UserService {
     const sort = req.params.sort; 
       movies.find({}, callback).sort(sort ).limit(24);
       console.log("dette funker")
-      /*
-    }else if(req.params.sort == "Year"){
-      movies.find({}, callback).sort({Year: -1}).limit(24);
-    }else if(req.params.sort =="Alphabetic"){
-      movies.find({}, callback).sort({Title : -1}).limit(24); 
-    } else {
-      movies.find({}, callback).sort({ Ratings: -1 }).limit(24);
-    
 
-    }
-    */
   }
 }

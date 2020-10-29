@@ -9,12 +9,16 @@ export class movieController {
 
   public get_movie(req: Request, res: Response) {
     const page = Math.max(0, parseInt(req.params.page));
-    //const title = req.params.title;
+    const sort = req.params.sort; 
+    const title = req.params.title;
+   
 
 
     if (req.query.filter) {
+      console.log("hei");
       let filters = req.query.filter.toString().split(",");
       this.movie_service.filterMovie(
+        //req,
         filters,
         page,
         (err: any, movie_data: IMovie) => {
@@ -25,20 +29,10 @@ export class movieController {
           }
         }
       );
-    } /*else if (req.query.sort) {
-      const sort = req.params.sort; 
-      this.movie_service.sortMovies(sort, (err: any, title_data: IMovie) => {
-        if (err) {
-          mongoError(err, res);
-        } else {
-          successResponse("get title successfull", title_data, res);
-        }
-      });
-    }
-
-    }*/else {
-      //console.log("without filter");
+    } else {
+      console.log("without filter");
       this.movie_service.filterMovie(
+        //req,
         [],
         page,
         (err: any, movie_data: IMovie) => {
@@ -51,11 +45,10 @@ export class movieController {
       );
     }
 
-    /*
-        } else {
-            insufficientParameters(res);
-        }*/
+ 
   }
+
+  /*
 
   public search_movies(req: Request, res: Response) {
     const title = req.params.title;
@@ -86,4 +79,5 @@ export class movieController {
       }
     });
   }
+  */
 }
