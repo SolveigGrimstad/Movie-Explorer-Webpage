@@ -8,6 +8,7 @@ export type Person = {
 export type AppState = {
     people: Person[];
     movieId: string;
+    heartLike: number;
 };
 //Funksjoner som returnerer action-objekter
 export function addPerson(personName: string) {
@@ -30,8 +31,22 @@ export function setMovieId(id: string) {
     } as const;
 }
 
+export function addLike(like: number) {
+    return {
+        type: "ADD_LIKE",
+        payload: like
+    } as const;
+}
+export function removeLike(like: number) {
+    return {
+        type: "REMOVE_LIKE",
+        payload: like
+    } as const;
+}
+
 type Actions = ReturnType<typeof addPerson> | ReturnType<typeof removePerson> ;
 type MovieActions = ReturnType<typeof setMovieId>;
+type LikeAction = ReturnType<typeof addLike> | ReturnType<typeof removeLike> ;
 
 //Reducer-funksjonen, initialiserer store med tom liste
 function peopleReducer(state: Person[] = [], action: Actions) {
@@ -56,13 +71,27 @@ function movieIdReducer(state: string = "", action: MovieActions) {
     return state;
 }
 
+function likeReducer(state: number, action: LikeAction){
+    switch(action.type){
+        case"ADD_LIKE":
+            return state ;
+        case "REMOVE_LIKE":
+            return state;
+        default:
+            console.log(action);
+            neverReached(action);
+    }
+    return state;
+}
+
 function neverReached(never: never) {}
 function neverReached2(never: never) {}
 
 //Utility-funksjon for å kombinere flere reducere
 const rootReducer = combineReducers<AppState>({
     people: peopleReducer, 
-    movieId: movieIdReducer
+    movieId: movieIdReducer,
+    heartLike: likeReducer,
 });
 
 function configureStore(): Store<AppState> {

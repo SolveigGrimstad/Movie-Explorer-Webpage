@@ -43,3 +43,9 @@ Moviebox {
   border-right: 2px solid red;
   border-bottom: 2px solid red;
 }
+
+.divHeart {
+  background-color: white;
+  width: 38px;
+  height: 30px;
+}
