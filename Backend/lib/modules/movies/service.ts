@@ -33,4 +33,7 @@ export default class UserService {
     movies.find(query, callback).limit(24);
    
   }
+  public sortMovies(query:any, callback:any){
+    movies.find({}, callback).sort({"Ratings" : -1}).limit(24); 
+  }
 }

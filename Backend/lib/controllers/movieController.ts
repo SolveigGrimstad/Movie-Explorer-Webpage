@@ -53,6 +53,12 @@ export class movieController {
   }
 
   public sort_movies(req: Request, res: Response){
-    
+    this.movie_service.sortMovies([], (err: any, title_data: IMovie) => {
+      if (err) {
+        mongoError(err, res);
+      } else {
+        successResponse("get title successfull", title_data, res);
+      }
+    });
   }
 }

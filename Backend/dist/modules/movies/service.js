@@ -29,5 +29,8 @@ class UserService {
     movieSearch(query, callback) {
         schema_1.default.find(query, callback).limit(24);
     }
+    sortMovies(query, callback) {
+        schema_1.default.find({}, callback).sort({ "Ratings": -1 }).limit(24);
+    }
 }
 exports.default = UserService;
