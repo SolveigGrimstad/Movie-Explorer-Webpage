@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { prependListener } from "cluster";
 import Star from "../components/star";
 import Heart from "../components/heart";
-import starRatings from "./starRatings";
+
 import axios from 'axios';
 
 
@@ -13,7 +13,7 @@ function Moviebox(props: any) {
   const [hearts, setHearts] = useState<number>(props.starRating);
 
 
-  //hanldeclik vil ikke bli kalt på nede i star
+  
   const handleClick = () => {
     setColor (!color);
     console.log("halooo");
