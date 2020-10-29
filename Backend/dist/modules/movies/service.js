@@ -10,5 +10,9 @@ class UserService {
         schema_1.default.findOne(query, callback);
         //fetches out 20 movies
     }
+    updateUser(movie_params, callback) {
+        const query = { _id: movie_params._id };
+        schema_1.default.findOneAndUpdate(query, movie_params, callback);
+    }
 }
 exports.default = UserService;

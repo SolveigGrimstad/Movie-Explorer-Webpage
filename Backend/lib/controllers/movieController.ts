@@ -44,67 +44,6 @@ export class movieController {
       insufficientParameters(res);
     }
   }
-/*
-  
-  public update_likes(req: Request, res: Response){
-    if(req.params.id){
-      const update_likes = {_id: req.params.id};
-      this.movie_service.filterUser(update_likes, (err: any, movie_data:IMovie) =>{
-        if(err){
-          mongoError(err, res);
-        }
-        else if(movie_data){
-          movie_data.modification_notes.push({
-            modified_on: new Date(Date.now()),
-            modified_by: null,
-            modification_note: 'Likes data updated'});
 
-          const movie_params: IMovie = {
-            _id : req.params.id,
-            starRatings: req.body.starRating ? req.body.starRating: movie_data.starRatings,
-          }
-          }
-        });
-      }
-    }
-
-*/
-/*
-public update_likes(req: Request, res: Response) {
-  if (req.params.id &&
-      req.body.starRating) {
-      const movie_filter = { _id: req.params.id };
-      this.movie_service.filterUser(movie_filter, (err: any, movie_data: IMovie) => {
-          if (err) {
-              mongoError(err, res);
-          } else if (movie_data) {
-              movie_data.modification_notes.push({
-                  modified_on: new Date(Date.now()),
-                  modified_by: null,
-                  modification_note: 'User data updated'
-              });
-              const user_params: IMovie = {
-                  _id: req.params.id,
-                  starRating: req.body.starRating ? req.body.starRating: movie_data.starRating,
-
-                  
-              };
-              this.movie_service.filterUser(user_params, (err: any) => {
-                  if (err) {
-                      mongoError(err, res);
-                  } else {
-                      successResponse('update user successfull', null, res);
-                  }
-              });
-          } else {
-              failureResponse('invalid user', null, res);
-          }
-      });
-  } else {
-      insufficientParameters(res);
-  }
-}
-          
-         */ 
 
 }

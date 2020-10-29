@@ -16,4 +16,5 @@ export default class UserService {
     const query = { _id: movie_params._id };
     movies.findOneAndUpdate(query, movie_params, callback);
 }
+
 }

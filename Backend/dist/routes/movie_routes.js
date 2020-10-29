@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MovieRoutes = void 0;
 const movieController_1 = require("../controllers/movieController");
-const rating = require('../modules/movies/schema');
+const schema_1 = require("../modules/movies/schema");
 class MovieRoutes {
     constructor() {
         this.movie_controller = new movieController_1.movieController();
@@ -23,20 +23,11 @@ class MovieRoutes {
         app.get("/api/movieinfo/:id", (req, res) => {
             this.movie_controller.get_id(req, res);
         });
-        /*
-            app.put('/api/user/:id', (req: Request, res: Response) => {
-              this.movie_controller.update_likes(req, res);
-          });
-        
-        */
-        app.put('/:starRating', (req, res) => __awaiter(this, void 0, void 0, function* () {
-            try {
-                const updatedRating = yield rating.updateOne({ _id: req.params.id }, { $inc: { starRating: 1 } });
-                res.json(updatedRating);
-            }
-            catch (err) {
-                res.json({ message: err });
-            }
+        app.put('/api/like/:movieid', (req, res) => __awaiter(this, void 0, void 0, function* () {
+            schema_1.default.findOneAndUpdate({ _id: req.params.movieid }, { $inc: { starRating: 1 } }, { new: true }).then(data => res.json(data));
+        }));
+        app.put('/api/dislike/:movieid', (req, res) => __awaiter(this, void 0, void 0, function* () {
+            schema_1.default.findOneAndUpdate({ _id: req.params.movieid }, { $inc: { starRating: -1 } }, { new: true }).then(data => res.json(data));
         }));
     }
 }
