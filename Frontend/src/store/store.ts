@@ -8,7 +8,7 @@ export type Person = {
 export type AppState = {
     people: Person[];
     movieId: string;
-    heartLike: number;
+    starRating: number;
 };
 //Funksjoner som returnerer action-objekter
 export function addPerson(personName: string) {
@@ -46,7 +46,7 @@ export function removeLike(like: number) {
 
 type Actions = ReturnType<typeof addPerson> | ReturnType<typeof removePerson> ;
 type MovieActions = ReturnType<typeof setMovieId>;
-type LikeAction = ReturnType<typeof addLike> | ReturnType<typeof removeLike> ;
+type LikeActions = ReturnType<typeof addLike> | ReturnType<typeof removeLike> ;
 
 //Reducer-funksjonen, initialiserer store med tom liste
 function peopleReducer(state: Person[] = [], action: Actions) {
@@ -71,7 +71,7 @@ function movieIdReducer(state: string = "", action: MovieActions) {
     return state;
 }
 
-function likeReducer(state: number, action: LikeAction){
+function likeReducer(state: number , action: LikeActions){
     switch(action.type){
         case"ADD_LIKE":
             return state ;
@@ -91,7 +91,7 @@ function neverReached2(never: never) {}
 const rootReducer = combineReducers<AppState>({
     people: peopleReducer, 
     movieId: movieIdReducer,
-    heartLike: likeReducer,
+    starRating: likeReducer,
 });
 
 function configureStore(): Store<AppState> {

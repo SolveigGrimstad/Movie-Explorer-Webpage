@@ -4,11 +4,11 @@ import { prependListener } from "cluster";
 import Star from "../components/star";
 import Heart from "../components/heart";
 import starRatings from "./starRatings";
-import IconButton from '@material-ui/core/IconButton';
-import ThumbUp from '@material-ui/icons/ThumbUp'
-import { ThumbUpSharp } from "@material-ui/icons";
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+//import IconButton from '@material-ui/core/IconButton';
+//import ThumbUp from '@material-ui/icons/ThumbUp'
+//import { ThumbUpSharp } from "@material-ui/icons";
+//import FavoriteIcon from '@material-ui/icons/Favorite';
+//import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import { addLike, removeLike } from "../store/store";
 
 
@@ -70,7 +70,7 @@ function Moviebox(props: any) {
         
         
         
-        <p>Antall som likte denne filmen: </p> 
+        <p>Antall som likte denne filmen: {props.starRating}</p> 
         {props.starRating}
 
          {/*<StarRating sender inn average raating/>*/}

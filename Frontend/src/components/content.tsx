@@ -18,6 +18,7 @@ interface IMovie {
   Country: String;
   Poster: String;
   Ratings: String;
+  starRating: Number;
 }
 
 function Content() {
@@ -81,6 +82,7 @@ function Content() {
                   actors={movie.Actors}
                   rating={movie.Ratings}
                   summary={movie.Plot}
+                  starRating={movie.starRating}
                 />
               </Route>
 
