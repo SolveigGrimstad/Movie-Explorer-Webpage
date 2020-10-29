@@ -9,17 +9,16 @@ export class movieController {
 
   public get_movie(req: Request, res: Response) {
     const page = Math.max(0, parseInt(req.params.page));
-    const sort = req.params.sort; 
-    const title = req.params.title;
-   
-
+    const title = req.query.title;
+    //const movie_search = { Title: { $regex: title, $options: "i" } };
 
     if (req.query.filter) {
       console.log("hei");
       let filters = req.query.filter.toString().split(",");
       this.movie_service.filterMovie(
-        //req,
+        //movie_search,
         filters,
+        req,
         page,
         (err: any, movie_data: IMovie) => {
           if (err) {
@@ -30,10 +29,11 @@ export class movieController {
         }
       );
     } else {
-      console.log("without filter");
+      console.log("hoppa over");
       this.movie_service.filterMovie(
-        //req,
+        //movie_search,
         [],
+        req,
         page,
         (err: any, movie_data: IMovie) => {
           if (err) {
@@ -44,11 +44,7 @@ export class movieController {
         }
       );
     }
-
- 
   }
-
-  /*
 
   public search_movies(req: Request, res: Response) {
     const title = req.params.title;
@@ -67,6 +63,7 @@ export class movieController {
       }
     );
   }
+  /*
 
   public sort_movies(req: Request, res: Response) {
     const sort = req.params.sort; 

@@ -23,6 +23,8 @@ interface IMovie {
   Country: String;
   Poster: String;
   Ratings: String;
+  starRating: Number;
+  _id: String;
 }
 
 function Content() {
@@ -36,24 +38,26 @@ function Content() {
   };
   const [sort, setSort] = useState("Rating");
 
-
   const filters: string[] = useSelector((state: AppState) => state.filter);
   //console.log(filters);
-  const params = new URLSearchParams([["filter", filters.join()],["sort", sort]]); //Sort inni her også
+  const params = new URLSearchParams([
+    ["filter", filters.join()],
+    ["sort", sort],
+  ]); //Sort inni her også
   //list of comma
 
   const [page, setPage] = useState(1);
 
-
-  
-
   useEffect(() => {
-   // console.log(title);
+    // console.log(title);
     const getMovies = async () => {
-      const api_url = "http://localhost:8000/api/movies/" + page;
+      const api_url =
+        "http://localhost:8000/api/movies/" + sort + "/" + page + "/";
+
+      console.log(api_url);
       if (title == "") {
         //if the search field is empty, shows all the movies
-        await axios.get(api_url, { params } ).then((response) => {
+        await axios.get(api_url, { params }).then((response) => {
           setMovies(response.data.DATA);
         });
       } else {
@@ -66,7 +70,7 @@ function Content() {
       }
     };
     getMovies();
-  });
+  }, [sort, filters, page, title]);
 
   useEffect(() => {
     const dropdown = () => {
@@ -114,13 +118,19 @@ function Content() {
                 </a>
                 <ul id="dropdown1" className="dropdown-content ">
                   <li>
-                    <a href="#!" onClick={()=>setSort("Rating")}>Rating</a>
+                    <a href="#!" onClick={() => setSort("Ratings")}>
+                      Rating
+                    </a>
                   </li>
                   <li>
-                    <a href="#!" onClick={()=> setSort("Year")}>Year</a>
+                    <a href="#!" onClick={() => setSort("Year")}>
+                      Year
+                    </a>
                   </li>
                   <li>
-                    <a href="#!" onClick={()=> setSort("Alphabetic")}>Alphabetic</a>
+                    <a href="#!" onClick={() => setSort("Alphabetic")}>
+                      Alphabetic
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -161,6 +171,8 @@ function Content() {
                   actors={movie.Actors}
                   rating={movie.Ratings}
                   summary={movie.Plot}
+                  starRating={movie.starRating}
+                  id={movie._id}
                 />
               </Route>
 

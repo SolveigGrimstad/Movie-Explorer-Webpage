@@ -10,22 +10,27 @@ export default class UserService {
     //fetches out 24 movies
 */
 
-  public filterMovie( query: any, page: number, callback: any) {
+  public filterMovie(
+    //query: any,
+    filterquery: any,
+    req: any,
+    page: number,
+    callback: any
+  ) {
     const perPage = 24;
-    //const sort = req.params.sort; 
+    const sort = req.params.sort;
 
-    if (query.length > 0) {
+    if (filterquery.length > 0) {
       //if there are some genres that are requested
-      let filterlist = query.map((value) => ({
+      let filterlist = filterquery.map((value: any) => ({
         Genre: { $regex: new RegExp(value, "i") },
       }));
       //makes a list for every genre object. Checks the Genre-field in the database
 
       movies
-        .find({ $and: filterlist },
-          callback)
+        .find({ $and: filterlist }, callback)
         .skip(perPage * (page - 1))
-       //.sort(sort)
+        .sort(sort)
         .limit(perPage);
 
       //.then((movies) => res.json(movies));
@@ -34,11 +39,10 @@ export default class UserService {
       movies
         .find({}, callback)
         .skip(perPage * (page - 1))
-       // .sort(sort)
+        .sort(sort)
         .limit(perPage);
       //if not, finds all the movies
     }
-
   }
 
   public movieSearch(query: any, page: number, callback: any) {
@@ -53,11 +57,14 @@ export default class UserService {
       const movies = await Movie.paginate }*/
   }
 
-
   public sortMovies(req: any, callback: any) {
-    const sort = req.params.sort; 
-      movies.find({}, callback).sort(sort ).limit(24);
-      console.log("dette funker")
+    const sort = req.params.sort;
+    movies.find({}, callback).sort(sort).limit(24);
+    console.log("dette funker");
+  }
 
+  public updateUser(movie_params: IMovie, callback: any) {
+    const query = { _id: movie_params._id };
+    movies.findOneAndUpdate(query, movie_params, callback);
   }
 }
