@@ -6,13 +6,14 @@ export class MovieRoutes {
   private movie_controller: movieController = new movieController();
 
   public route(app: Application) {
-    app.get("/api/movies/", (req: Request, res: Response) => {
+    app.get("/api/movies/:page/", (req: Request, res: Response) => {
       this.movie_controller.get_movie(req, res);
     });
-
+    /*
     app.get("/api/movieinfo/:id", (req: Request, res: Response) => {
       this.movie_controller.get_id(req, res);
     });
+    */
 
   app.put('/api/like/:movieid', async (req, res) => {
    
@@ -36,6 +37,14 @@ export class MovieRoutes {
     ).then( data =>
     res.json(data));
   });
+    
+    app.get("/api/search/:title/:page/", (req: Request, res: Response) => {
+      this.movie_controller.search_movies(req, res);
+    });
+
+    app.get("/api/sort/", (req: Request, res: Response) => {
+      this.movie_controller.sort_movies(req, res);
+    });
   }
 
 

@@ -17,18 +17,26 @@ class MovieRoutes {
         this.movie_controller = new movieController_1.movieController();
     }
     route(app) {
-        app.get("/api/movies/", (req, res) => {
+        app.get("/api/movies/:page/", (req, res) => {
             this.movie_controller.get_movie(req, res);
         });
-        app.get("/api/movieinfo/:id", (req, res) => {
-            this.movie_controller.get_id(req, res);
+        /*
+        app.get("/api/movieinfo/:id", (req: Request, res: Response) => {
+          this.movie_controller.get_id(req, res);
         });
+        */
         app.put('/api/like/:movieid', (req, res) => __awaiter(this, void 0, void 0, function* () {
             schema_1.default.findOneAndUpdate({ _id: req.params.movieid }, { $inc: { starRating: 1 } }, { new: true }).then(data => res.json(data));
         }));
         app.put('/api/dislike/:movieid', (req, res) => __awaiter(this, void 0, void 0, function* () {
             schema_1.default.findOneAndUpdate({ _id: req.params.movieid }, { $inc: { starRating: -1 } }, { new: true }).then(data => res.json(data));
         }));
+        app.get("/api/search/:title/:page/", (req, res) => {
+            this.movie_controller.search_movies(req, res);
+        });
+        app.get("/api/sort/", (req, res) => {
+            this.movie_controller.sort_movies(req, res);
+        });
     }
 }
 exports.MovieRoutes = MovieRoutes;

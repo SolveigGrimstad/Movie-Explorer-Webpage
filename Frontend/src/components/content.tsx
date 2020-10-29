@@ -4,6 +4,11 @@ import Filternav from "./filternav";
 import Movieinfo from "./movieinfo";
 import axios from "axios";
 import { Switch, Route } from "react-router-dom";
+import e from "express";
+import { useSelector } from "react-redux";
+import "../updateGenreFilter";
+import { AppState } from "../store/store";
+//import * from "materialize-css";
 
 interface IMovie {
   _id: String;
@@ -25,15 +30,47 @@ interface IMovie {
 function Content() {
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [open, setOpen] = useState(false);
+  const [title, setTitle] = useState<string>("");
+  const initiateSearch = (e: any) => {
+    setTitle(e.target.value);
+    setPage(1);
+    //sets the page to be page nr 1, when user search
+  };
+
+  const filters: string[] = useSelector((state: AppState) => state.filter);
+  //console.log(filters);
+  const params = new URLSearchParams([["filter", filters.join()]]);
+  //list of comma
+
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
+    console.log(title);
     const getMovies = async () => {
-      const api_url = "http://localhost:8000/api/movies/";
-      await axios.get(api_url).then((response) => {
-        setMovies(response.data.DATA);
-      });
+      const api_url = "http://localhost:8000/api/movies/" + page;
+      if (title == "") {
+        //if the search field is empty, shows all the movies
+        await axios.get(api_url, { params }).then((response) => {
+          setMovies(response.data.DATA);
+        });
+      } else {
+        //showing results based on the input field
+        await axios
+          .get(`http://localhost:8000/api/search/${title}/` + page)
+          .then((response) => {
+            setMovies(response.data.DATA);
+          });
+      }
     };
     getMovies();
+  }, []);
+
+  useEffect(() => {
+    const dropdown = () => {
+      var elems = document.querySelectorAll(".dropdown-trigger");
+      var instances = M.Dropdown.init(elems, {});
+    };
+    dropdown();
   }, []);
 
   return (
@@ -43,13 +80,13 @@ function Content() {
           <div className="searchbar_buttons ">
             <td>
               {" "}
-              <input placeholder="Search for movie..." />
-            </td>
-
-            <td>
-              <button className="waves-effect deep-purple lighten-1 btn ">
-                Search
-              </button>
+              <input
+                name="search"
+                placeholder="Search for movie..."
+                value={title}
+                onChange={(e) => initiateSearch(e)}
+                //changes to page 1 when searching
+              />
             </td>
 
             <td>
@@ -57,20 +94,58 @@ function Content() {
                 onClick={() => setOpen(!open)}
                 className="waves-effect deep-purple lighten-1 btn"
               >
-                Filter search
+                Filter
               </button>
             </td>
 
             <td>
-              <button className="waves-effect deep-purple lighten-1 btn">
-                Sorty by
-              </button>
+              <div>
+                <a
+                  id="sorting-button"
+                  className="dropdown-trigger deep-purple lighten-1 btn"
+                  href="#"
+                  data-target="dropdown1"
+                >
+                  Sort
+                  <i className="material-icons">arrow_drop_down</i>
+                </a>
+                <ul id="dropdown1" className="dropdown-content ">
+                  <li>
+                    <a href="#!">Name</a>
+                  </li>
+                  <li>
+                    <a href="#!">Price</a>
+                  </li>
+                  <li>
+                    <a href="#!">Stars</a>
+                  </li>
+                </ul>
+              </div>
             </td>
           </div>
         </tr>
       </table>
 
       {open && <Filternav />}
+
+      <ul className="pagination">
+        <li className="waves-effect">
+          <a href="#!">
+            <i className="material-icons" onClick={() => setPage(page - 1)}>
+              chevron_left
+            </i>
+          </a>
+        </li>
+
+        <li className="waves-effect">
+          <a href="#!">
+            <i className="material-icons" onClick={() => setPage(page + 1)}>
+              {" "}
+              chevron_right
+            </i>
+          </a>
+        </li>
+      </ul>
 
       <div className="movie_container">
         {movies.map((movie) => {
@@ -95,6 +170,24 @@ function Content() {
           );
         })}
       </div>
+      <ul className="pagination">
+        <li className="waves-effect">
+          <a href="#!">
+            <i className="material-icons" onClick={() => setPage(page - 1)}>
+              chevron_left
+            </i>
+          </a>
+        </li>
+
+        <li className="waves-effect">
+          <a href="#!">
+            <i className="material-icons" onClick={() => setPage(page + 1)}>
+              {" "}
+              chevron_right
+            </i>
+          </a>
+        </li>
+      </ul>
     </div>
   );
 }

@@ -1,13 +1,20 @@
 import React from "react";
+import { updateGenreFilter } from "../store/store";
+import { useDispatch } from "react-redux";
 
 function Filternav() {
+  const dispatch = useDispatch();
+
   return (
     <table className="filternav ">
       <tr>
         <td>
           <p>
             <label>
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Action"))}
+              />
               <span>Action</span>
             </label>
           </p>
@@ -15,7 +22,10 @@ function Filternav() {
         <td>
           <p>
             <label>
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Adventure"))}
+              />
               <span>Adventure</span>
             </label>
           </p>
@@ -23,7 +33,10 @@ function Filternav() {
         <td>
           <p>
             <label>
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Animation"))}
+              />
               <span>Animation</span>
             </label>
           </p>
@@ -31,16 +44,22 @@ function Filternav() {
         <td>
           <p>
             <label>
-              <input type="checkbox" />
-              <span>Animation</span>
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Drama"))}
+              />
+              <span>Drama</span>
             </label>
           </p>
         </td>
         <td>
           <p>
             <label>
-              <input type="checkbox" />
-              <span>Animation</span>
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Fantasy"))}
+              />
+              <span>Fantasy</span>
             </label>
           </p>
         </td>
@@ -49,40 +68,55 @@ function Filternav() {
         <td>
           <p>
             <label>
-              <input type="checkbox" />
-              <span>Action</span>
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Thriller"))}
+              />
+              <span>Thriller</span>
             </label>
           </p>
         </td>
         <td>
           <p>
             <label>
-              <input type="checkbox" />
-              <span>Adventure</span>
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Family"))}
+              />
+              <span>Family</span>
             </label>
           </p>
         </td>
         <td>
           <p>
             <label>
-              <input type="checkbox" />
-              <span>Animation</span>
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Romance"))}
+              />
+              <span>Romance</span>
             </label>
           </p>
         </td>
         <td>
           <p>
             <label>
-              <input type="checkbox" />
-              <span>Animation</span>
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Crime"))}
+              />
+              <span>Crime</span>
             </label>
           </p>
         </td>
         <td>
           <p>
             <label>
-              <input type="checkbox" />
-              <span>Animation</span>
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Comedy"))}
+              />
+              <span>Comedy</span>
             </label>
           </p>
         </td>
@@ -91,40 +125,55 @@ function Filternav() {
         <td>
           <p>
             <label>
-              <input type="checkbox" />
-              <span>Action</span>
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Biography"))}
+              />
+              <span>Biography</span>
             </label>
           </p>
         </td>
         <td>
           <p>
             <label>
-              <input type="checkbox" />
-              <span>Adventure</span>
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Sci-fi"))}
+              />
+              <span>Sci-fi</span>
             </label>
           </p>
         </td>
         <td>
           <p>
             <label>
-              <input type="checkbox" />
-              <span>Animation</span>
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Sport"))}
+              />
+              <span>Sport</span>
             </label>
           </p>
         </td>
         <td>
           <p>
             <label>
-              <input type="checkbox" />
-              <span>Animation</span>
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Music"))}
+              />
+              <span>Music</span>
             </label>
           </p>
         </td>
         <td>
           <p>
             <label>
-              <input type="checkbox" />
-              <span>Animation</span>
+              <input
+                type="checkbox"
+                onChange={() => dispatch(updateGenreFilter("Horror"))}
+              />
+              <span>Horror</span>
             </label>
           </p>
         </td>

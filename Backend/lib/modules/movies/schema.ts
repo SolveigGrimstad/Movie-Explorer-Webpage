@@ -4,7 +4,7 @@ import { ModificationNote } from "../common/model";
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-  title: String,
+  Title: String,
   year: String,
   released: String,
   duration: String,

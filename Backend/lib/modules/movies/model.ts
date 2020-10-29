@@ -1,8 +1,9 @@
 import { ModificationNote } from "../common/model";
+import mongoosePaginate from "mongoose";
 
 export interface IMovie {
   _id?: String;
-  title: String;
+  Title: String;
   year: String;
   released: String;
   duration: String;
@@ -17,3 +18,6 @@ export interface IMovie {
   starRating: Number;
   modification_notes: ModificationNote[];
 }
+
+//IMovie.plugin(mongoosePaginate)
+//https://github.com/HaiderMalik12/build-and-secure-restful-api/tree/pagination/src/api/resources/song
