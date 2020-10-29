@@ -78,7 +78,7 @@ export class movieController {
   public sort_movies(req: Request, res: Response) {
     const sort = req.params.sort; 
 
-    this.movie_service.sortMovies(sort, (err: any, title_data: IMovie) => {
+    this.movie_service.sortMovies(req, (err: any, title_data: IMovie) => {
       if (err) {
         mongoError(err, res);
       } else {

@@ -55,9 +55,10 @@ export default class UserService {
 
 
   public sortMovies(req: any, callback: any) {
-    if(req.params.sort == "Rating"){
-      movies.find({}, callback).sort({ Ratings: -1 }).limit(24);
+    const sort = req.params.sort; 
+      movies.find({}, callback).sort(sort ).limit(24);
       console.log("dette funker")
+      /*
     }else if(req.params.sort == "Year"){
       movies.find({}, callback).sort({Year: -1}).limit(24);
     }else if(req.params.sort =="Alphabetic"){
@@ -67,6 +68,6 @@ export default class UserService {
     
 
     }
-    
+    */
   }
 }

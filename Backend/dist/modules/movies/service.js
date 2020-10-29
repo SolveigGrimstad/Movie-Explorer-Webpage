@@ -45,19 +45,20 @@ class UserService {
           const movies = await Movie.paginate }*/
     }
     sortMovies(req, callback) {
-        if (req.params.sort == "Rating") {
-            schema_1.default.find({}, callback).sort({ Ratings: -1 }).limit(24);
-            console.log("dette funker");
-        }
-        else if (req.params.sort == "Year") {
-            schema_1.default.find({}, callback).sort({ Year: -1 }).limit(24);
-        }
-        else if (req.params.sort == "Alphabetic") {
-            schema_1.default.find({}, callback).sort({ Title: -1 }).limit(24);
-        }
-        else {
-            schema_1.default.find({}, callback).sort({ Ratings: -1 }).limit(24);
-        }
+        const sort = req.params.sort;
+        schema_1.default.find({}, callback).sort(sort).limit(24);
+        console.log("dette funker");
+        /*
+      }else if(req.params.sort == "Year"){
+        movies.find({}, callback).sort({Year: -1}).limit(24);
+      }else if(req.params.sort =="Alphabetic"){
+        movies.find({}, callback).sort({Title : -1}).limit(24);
+      } else {
+        movies.find({}, callback).sort({ Ratings: -1 }).limit(24);
+      
+  
+      }
+      */
     }
 }
 exports.default = UserService;
