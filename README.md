@@ -63,6 +63,8 @@ Som sagt, har vi prøvd mye forskjellig og testet mye ulik funksjonalitet/setup 
 vært litt mer beskrivende i forhold til hvilke funksjonalitet vi ønsket å implementere. 
 
 # Sources <a name="source"></a>:
-https://materializecss.com/
-http://www.omdbapi.com/
+
+* https://materializecss.com/
+
+* http://www.omdbapi.com/
 
