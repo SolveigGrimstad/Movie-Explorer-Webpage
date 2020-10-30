@@ -42,12 +42,14 @@ Vi har valgt å bruke Materialize som tredjepartskomponent da dette var noe vi h
 var mye lettere å håndtere enn om vi hadde implementert fra bunnen av. Fra Materialize hentet vi blant annet design til header, footer, slideshow og filmkomponentene.
 
 ### MongoDB <a name="MongoDB"></a>:
+For å legge til data i databasen startet vi først med et public API, men fant ut når vi skulle vise dataen at APIet ikke inneholdt bilder. Derfor bestemte vi oss litt ut i prosjektet
+om å bytte API slik at vi fikk med bilder.
 
 # Testing <a name="Testing"></a>:
 
 ## Enhetstestning <a name="Enhetstesting"></a>:
 
-# End-2-end <a name="end-to-end"></a>:
+## End-2-end <a name="end-to-end"></a>:
 
 
 # Installering <a name="Installering"></a>:
