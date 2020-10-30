@@ -57,11 +57,7 @@ export default class UserService {
       const movies = await Movie.paginate }*/
   }
 
-  public sortMovies(req: any, callback: any) {
-    const sort = req.params.sort;
-    movies.find({}, callback).sort(sort).limit(24);
-    console.log("dette funker");
-  }
+
 
   public updateUser(movie_params: IMovie, callback: any) {
     const query = { _id: movie_params._id };

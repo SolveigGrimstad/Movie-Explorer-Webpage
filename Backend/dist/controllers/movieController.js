@@ -6,20 +6,6 @@ const service_2 = require("../modules/movies/service");
 class movieController {
     constructor() {
         this.movie_service = new service_2.default();
-        /*
-      
-        public sort_movies(req: Request, res: Response) {
-          const sort = req.params.sort;
-      
-          this.movie_service.sortMovies(req, (err: any, title_data: IMovie) => {
-            if (err) {
-              mongoError(err, res);
-            } else {
-              successResponse("get title successfull", title_data, res);
-            }
-          });
-        }
-        */
     }
     get_movie(req, res) {
         const page = Math.max(0, parseInt(req.params.page));

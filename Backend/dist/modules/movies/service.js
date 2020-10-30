@@ -45,11 +45,6 @@ class UserService {
         try {
           const movies = await Movie.paginate }*/
     }
-    sortMovies(req, callback) {
-        const sort = req.params.sort;
-        schema_1.default.find({}, callback).sort(sort).limit(24);
-        console.log("dette funker");
-    }
     updateUser(movie_params, callback) {
         const query = { _id: movie_params._id };
         schema_1.default.findOneAndUpdate(query, movie_params, callback);
