@@ -18,19 +18,7 @@ import { Dispatch } from "redux";
 import { useSelector, shallowEqual, useDispatch } from "react-redux";
 
 function App() {
-  /*
-  const movies: readonly Imovie[] = useSelector(
-    (state: MovieState) => state.movie,
-    shallowEqual
-  )
 
-  const dispatch: Dispatch<any> = useDispatch()
-
-  const saveMovie = React.useCallback(
-    (movie: Imovie) => dispatch(searchMovie(movie)),
-    [dispatch]
-  )
-  */
   return (
     <div className="App">
       <Router>
