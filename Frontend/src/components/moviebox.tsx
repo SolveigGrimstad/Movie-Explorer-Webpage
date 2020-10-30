@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { prependListener } from "cluster";
 import Heart from "../components/heart";
@@ -7,6 +7,11 @@ import axios from "axios";
 
 function Moviebox(props: any) {
   const [hearts, setHearts] = useState<number>(props.starRating);
+  const [like, setLike] = useState<number>(0);
+
+  useEffect(() => {
+    setHearts(props.starRating);
+  }, []);
 
   const handleClick = () => {
     setColor(!color);
@@ -15,9 +20,11 @@ function Moviebox(props: any) {
       axios.put(`http://localhost:8000/api/dislike/${props.id}`);
 
       setHearts(hearts - 1);
+      setLike(like - 1);
     } else {
       axios.put(`http://localhost:8000/api/like/${props.id}`);
       setHearts(hearts + 1);
+      setLike(like + 1);
     }
   };
 
@@ -34,9 +41,6 @@ function Moviebox(props: any) {
 
           <i className="material-icons right">more_vert</i>
         </span>
-        <p>
-          <Link to="/movieinfo">Trykk her</Link>
-        </p>
       </div>
       <div className="card-reveal">
         <span className="card-title grey-text text-darken-4 activator">
@@ -44,19 +48,32 @@ function Moviebox(props: any) {
           <i className="material-icons right activator">close</i>
         </span>
 
-        {props.actors}
-
-        <div className="card-star">
-          <span className="divHeart" onClick={handleClick}>
-            <Heart isRed={color} size={35} />
-          </span>
-          <p>Antall som anbefaler denne filmen: {hearts}</p>
+        <div>
+          <h6>{props.year}</h6>
+          <p>
+            <i className="material-icons">access_time</i>
+            {props.runtime}
+          </p>
         </div>
 
-        <h5>{props.rating}</h5>
-        <p>{props.summary}</p>
+        <div className="card-star">
+          <span className="divHeart" onClick={() => handleClick()}>
+            <Heart isRed={color} size={35} />
+          </span>
+          <p>
+            Likes on this movie: <b>{(props.starRating + like).toString()}</b>
+          </p>
+        </div>
+        <h6>
+          IMDB Rating: <b>{props.rating}</b>
+          <i className="material-icons" style={{ color: "#ffca28" }}>
+            star
+          </i>
+        </h6>
 
-        <i className="material-icons star"></i>
+        <h5></h5>
+
+        <p>{props.summary}</p>
       </div>
     </div>
   );

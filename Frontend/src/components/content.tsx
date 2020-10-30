@@ -29,14 +29,14 @@ function Content() {
   const [movies, setMovies] = useState<IMovie[]>([]);
   const [open, setOpen] = useState(false); //opens the filter bar
   const [title, setTitle] = useState<string>(""); //searching
+  const [page, setPage] = useState(1);
+  const [sort, setSort] = useState("Ratings");
+  const filters: string[] = useSelector((state: AppState) => state.filter);
   const initiateSearch = (e: any) => {
     setTitle(e.target.value);
     setPage(1);
     //sets the page to be page nr 1, when user search
   };
-  const [sort, setSort] = useState("Ratings");
-
-  const filters: string[] = useSelector((state: AppState) => state.filter);
   //console.log(filters);
   const params = new URLSearchParams([
     ["filter", filters.join()],
@@ -44,10 +44,8 @@ function Content() {
   ]);
   //list of comma in filters
 
-  const [page, setPage] = useState(1);
-
   useEffect(() => {
-    // console.log(title);
+    // gets all the movies
     const getMovies = async () => {
       const api_url =
         "http://localhost:8000/api/movies/" +
@@ -57,20 +55,12 @@ function Content() {
         "/?title=" +
         title;
 
-      console.log(api_url);
-      if (true) {
-        //if the search field is empty, shows all the movies
-        await axios.get(api_url, { params }).then((response) => {
-          setMovies(response.data.DATA);
-        });
-      } else {
-        //showing results based on the input field
-        await axios
-          .get(`http://localhost:8000/api/search/${title}/` + page)
-          .then((response) => {
-            setMovies(response.data.DATA);
-          });
-      }
+      console.log(api_url, { params });
+
+      //if the search field is empty, shows all the movies
+      await axios.get(api_url, { params }).then((response) => {
+        setMovies(response.data.DATA);
+      });
     };
     getMovies();
   }, [sort, filters, page, title]);
@@ -112,10 +102,8 @@ function Content() {
 
             <td>
               <div>
-                <a
-                  id="sorting-button"
-                  className="dropdown-trigger deep-purple lighten-1 btn sortbtn"
-                  href="#"
+                <button
+                  className="dropdown-trigger waves-effect deep-purple lighten-1 btn"
                   data-target="dropdown1"
                 >
                   Sort by{" "}
@@ -129,7 +117,7 @@ function Content() {
                     <p></p>
                   )}
                   <i className="material-icons">arrow_drop_down</i>
-                </a>
+                </button>
                 <ul id="dropdown1" className="dropdown-content ">
                   <li>
                     <a href="#!" onClick={() => setSort("Ratings")}>
@@ -201,6 +189,8 @@ function Content() {
                   actors={movie.Actors}
                   rating={movie.Ratings}
                   summary={movie.Plot}
+                  runtime={movie.Runtime}
+                  year={movie.Year}
                   starRating={movie.starRating}
                   id={movie._id}
                 />
@@ -214,22 +204,39 @@ function Content() {
         })}
       </div>
       <ul className="pagination">
-        <li className="waves-effect">
-          <a href="#!">
-            <i className="material-icons" onClick={() => setPage(page - 1)}>
-              chevron_left
-            </i>
-          </a>
-        </li>
-
-        <li className="waves-effect">
-          <a href="#!">
-            <i className="material-icons" onClick={() => setPage(page + 1)}>
-              {" "}
-              chevron_right
-            </i>
-          </a>
-        </li>
+        {page > 1 && (
+          <li className="hei">
+            <a href="#!">
+              <i
+                className={
+                  page == 1
+                    ? "disabled material-icons"
+                    : "waves-effect material-icons"
+                }
+                onClick={() => setPage(page - 1)}
+              >
+                chevron_left
+              </i>
+            </a>
+          </li>
+        )}
+        {movies.length >= 24 && (
+          <li className="heo">
+            <a href="#!">
+              <i
+                className={
+                  movies.length < 24
+                    ? "disabled material-icons"
+                    : "waves-effect material-icons"
+                }
+                onClick={() => setPage(page + 1)}
+              >
+                {" "}
+                chevron_right
+              </i>
+            </a>
+          </li>
+        )}
       </ul>
     </div>
   );
