@@ -1,50 +1,45 @@
 import { IMovie } from "./model";
 import movies from "./schema";
-import { MovieRoutes } from "routes/movie_routes";
-import { Request, Response } from "express";
 
 export default class UserService {
-  /*
-  public filterMovie(query: any, callback: any) {
-    movies.find(query, callback).limit(24);
-    //fetches out 24 movies
-*/
-
-  public filterMovie(
-    //query: any,
+  public actionMovie(
+    query: any, //search
     filterquery: any,
-    req: any,
+    req: any, //sort request
     page: number,
+    //likes:number,
     callback: any
   ) {
-    const perPage = 24;
-    const sort = req.params.sort;
+    const perPage = 24; //24 movies per page
+    const sort = String(req.params.sort);
 
     if (filterquery.length > 0) {
-      //if there are some genres that are requested
+      //if there are some genres that are requested, list of filterqueries is longer than 0
       let filterlist = filterquery.map((value: any) => ({
         Genre: { $regex: new RegExp(value, "i") },
       }));
       //makes a list for every genre object. Checks the Genre-field in the database
 
       movies
-        .find({ $and: filterlist }, callback)
+        .find(
+          { $and: filterlist, Title: { $regex: new RegExp(query, "i") } },
+          callback
+        ) //AND operator for all the requested genres
+        .sort({ [sort]: -1 })
         .skip(perPage * (page - 1))
-        .sort(sort)
         .limit(perPage);
-
-      //.then((movies) => res.json(movies));
-      //finds every object that satisfies all the genre objects, AND operator
     } else {
       movies
         .find({}, callback)
+        .sort({ [sort]: -1 })
         .skip(perPage * (page - 1))
-        .sort(sort)
         .limit(perPage);
-      //if not, finds all the movies
+
+      //if no filters, find all the movies
     }
   }
 
+  //search functionality
   public movieSearch(query: any, page: number, callback: any) {
     const perPage = 24;
 
@@ -52,15 +47,6 @@ export default class UserService {
       .find(query, callback)
       .skip(perPage * (page - 1))
       .limit(perPage);
-    /*
-    try {
-      const movies = await Movie.paginate }*/
-  }
-
-  public sortMovies(req: any, callback: any) {
-    const sort = req.params.sort;
-    movies.find({}, callback).sort(sort).limit(24);
-    console.log("dette funker");
   }
 
   public updateUser(movie_params: IMovie, callback: any) {

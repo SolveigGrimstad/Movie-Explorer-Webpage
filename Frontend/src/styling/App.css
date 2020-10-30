@@ -37,6 +37,14 @@ Moviebox {
   width: 100%;
   margin-left: 5%;
   margin-right: 5%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+  filternav {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .pagination {
@@ -46,4 +54,8 @@ Moviebox {
 .homepageHeader {
   text-align: center;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.heartLike {
+  justify-content: center;
 }

@@ -9,28 +9,8 @@ import Movieinfo from "./components/movieinfo";
 import "../src/styling/materialize.css";
 import "../src/styling/materialize.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Moviebox from "./components/moviebox";
-
-//import Moviebox from "./components/moviebox";
-
-//redux
-import { Dispatch } from "redux";
-import { useSelector, shallowEqual, useDispatch } from "react-redux";
 
 function App() {
-  /*
-  const movies: readonly Imovie[] = useSelector(
-    (state: MovieState) => state.movie,
-    shallowEqual
-  )
-
-  const dispatch: Dispatch<any> = useDispatch()
-
-  const saveMovie = React.useCallback(
-    (movie: Imovie) => dispatch(searchMovie(movie)),
-    [dispatch]
-  )
-  */
   return (
     <div className="App">
       <Router>

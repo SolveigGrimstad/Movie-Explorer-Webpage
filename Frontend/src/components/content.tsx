@@ -4,11 +4,9 @@ import Filternav from "./filternav";
 import Movieinfo from "./movieinfo";
 import axios from "axios";
 import { Switch, Route } from "react-router-dom";
-import e from "express";
 import { useSelector } from "react-redux";
 import "../updateGenreFilter";
 import { AppState } from "../store/store";
-//import * from "materialize-css";
 
 interface IMovie {
   Title: String;
@@ -29,22 +27,22 @@ interface IMovie {
 
 function Content() {
   const [movies, setMovies] = useState<IMovie[]>([]);
-  const [open, setOpen] = useState(false);
-  const [title, setTitle] = useState<string>("");
+  const [open, setOpen] = useState(false); //opens the filter bar
+  const [title, setTitle] = useState<string>(""); //searching
   const initiateSearch = (e: any) => {
     setTitle(e.target.value);
     setPage(1);
     //sets the page to be page nr 1, when user search
   };
-  const [sort, setSort] = useState("Rating");
+  const [sort, setSort] = useState("Ratings");
 
   const filters: string[] = useSelector((state: AppState) => state.filter);
   //console.log(filters);
   const params = new URLSearchParams([
     ["filter", filters.join()],
     ["sort", sort],
-  ]); //Sort inni her også
-  //list of comma
+  ]);
+  //list of comma in filters
 
   const [page, setPage] = useState(1);
 
@@ -52,10 +50,15 @@ function Content() {
     // console.log(title);
     const getMovies = async () => {
       const api_url =
-        "http://localhost:8000/api/movies/" + sort + "/" + page + "/";
+        "http://localhost:8000/api/movies/" +
+        sort +
+        "/" +
+        page +
+        "/?title=" +
+        title;
 
       console.log(api_url);
-      if (title == "") {
+      if (true) {
         //if the search field is empty, shows all the movies
         await axios.get(api_url, { params }).then((response) => {
           setMovies(response.data.DATA);
@@ -71,8 +74,10 @@ function Content() {
     };
     getMovies();
   }, [sort, filters, page, title]);
+  // the variables thats going to change when the useEffect is called
 
   useEffect(() => {
+    //triggers the drowdownbutton
     const dropdown = () => {
       var elems = document.querySelectorAll(".dropdown-trigger");
       var instances = M.Dropdown.init(elems, {});
@@ -109,18 +114,27 @@ function Content() {
               <div>
                 <a
                   id="sorting-button"
-                  className="dropdown-trigger deep-purple lighten-1 btn"
+                  className="dropdown-trigger deep-purple lighten-1 btn sortbtn"
                   href="#"
                   data-target="dropdown1"
                 >
-                  Sort
+                  Sort by{" "}
+                  {sort === "Ratings" ? (
+                    "Rating"
+                  ) : <p></p> || sort === "Year" ? (
+                    "Year"
+                  ) : <p></p> || sort === "starRating" ? (
+                    "Likes"
+                  ) : (
+                    <p></p>
+                  )}
                   <i className="material-icons">arrow_drop_down</i>
                 </a>
                 <ul id="dropdown1" className="dropdown-content ">
                   <li>
                     <a href="#!" onClick={() => setSort("Ratings")}>
                       Rating
-                    </a>
+                    </a>{" "}
                   </li>
                   <li>
                     <a href="#!" onClick={() => setSort("Year")}>
@@ -128,8 +142,8 @@ function Content() {
                     </a>
                   </li>
                   <li>
-                    <a href="#!" onClick={() => setSort("Alphabetic")}>
-                      Alphabetic
+                    <a href="#!" onClick={() => setSort("starRating")}>
+                      Likes
                     </a>
                   </li>
                 </ul>
