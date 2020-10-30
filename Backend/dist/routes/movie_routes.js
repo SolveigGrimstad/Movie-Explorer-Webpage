@@ -20,9 +20,6 @@ class MovieRoutes {
         app.get("/api/movies/:sort/:page/", (req, res) => {
             this.movie_controller.get_movie(req, res);
         });
-        app.get("/api/search/:title/:page/", (req, res) => {
-            this.movie_controller.search_movies(req, res);
-        });
         app.put("/api/like/:movieid", (req, res) => __awaiter(this, void 0, void 0, function* () {
             schema_1.default
                 .findOneAndUpdate({ _id: req.params.movieid }, { $inc: { starRating: 1 } }, { new: true })

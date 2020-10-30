@@ -79,45 +79,4 @@ function Moviebox(props: any) {
   );
 }
 
-/*
-    <div className="card">
-      <div className="card-image waves-effect waves-block waves-light">
-        <img className="activator" src={props.imageUrl} />
-      </div>
-      <div className="card-content">
-        <span className="card-title activator grey-text text-darken-4">
-          {props.title}
-
-          <i className="material-icons right">more_vert</i>
-        </span>
-      </div>
-      <div className="card-reveal">
-        <span className="card-title grey-text text-darken-4 activator">
-          {props.title}
-          <i className="material-icons right activator">close</i>
-        </span>
-
-        {props.actors}
-
-        <div className="card-star">
-          <span className="heartLike" onClick={handleClick}>
-            <Heart isRed={color} size={40} />
-            <p>Likes on this movie: {hearts}</p>
-          </span>
-        </div>
-
-        <h6>IMDB rating:</h6>
-
-        <i className="material-icons" style={{ color: "#ffb300" }}>
-          star
-        </i>
-
-        <h5>{props.rating}</h5>
-        <p>{props.summary}</p>
-      </div>
-    </div>
-    
-  );
-}
-*/
 export default Moviebox;

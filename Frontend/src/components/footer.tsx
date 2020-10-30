@@ -9,8 +9,7 @@ function Footer() {
             <div className="col l6 s12">
               <h5 className="white-text">MovieSelector</h5>
               <p className="grey-text text-lighten-4">
-                This page is made by Solveig Bergan Grimstad, Maud Johansson and
-                Katrine Nguyen
+                This page is made by group 42 in IT2810, Web development
               </p>
             </div>
             <div className="col l4 offset-l2 s12">

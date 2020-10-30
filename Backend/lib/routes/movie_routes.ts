@@ -10,10 +10,6 @@ export class MovieRoutes {
       this.movie_controller.get_movie(req, res);
     });
 
-    app.get("/api/search/:title/:page/", (req: Request, res: Response) => {
-      this.movie_controller.search_movies(req, res);
-    });
-
     app.put("/api/like/:movieid", async (req, res) => {
       movies
         .findOneAndUpdate(

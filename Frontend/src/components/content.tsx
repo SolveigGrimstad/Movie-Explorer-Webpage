@@ -37,6 +37,11 @@ function Content() {
     setPage(1);
     //sets the page to be page nr 1, when user search
   };
+  const initiateSort = (e: any) => {
+    setSort(e);
+    setPage(1);
+    //sets the page to be page nr 1, when user search
+  };
   //console.log(filters);
   const params = new URLSearchParams([
     ["filter", filters.join()],
@@ -83,6 +88,7 @@ function Content() {
             <td>
               {" "}
               <input
+                className="searchbarInput"
                 name="search"
                 placeholder="Search for movie..."
                 value={title}
@@ -120,17 +126,17 @@ function Content() {
                 </button>
                 <ul id="dropdown1" className="dropdown-content ">
                   <li>
-                    <a href="#!" onClick={() => setSort("Ratings")}>
+                    <a href="#!" onClick={() => initiateSort("Ratings")}>
                       Rating
                     </a>{" "}
                   </li>
                   <li>
-                    <a href="#!" onClick={() => setSort("Year")}>
+                    <a href="#!" onClick={() => initiateSort("Year")}>
                       Year
                     </a>
                   </li>
                   <li>
-                    <a href="#!" onClick={() => setSort("starRating")}>
+                    <a href="#!" onClick={() => initiateSort("starRating")}>
                       Likes
                     </a>
                   </li>
@@ -180,6 +186,9 @@ function Content() {
 
       <div className="movie_container">
         {movies.map((movie) => {
+          if (movie.Title == "The Revenant") {
+            console.log(movie);
+          }
           return (
             <Switch>
               <Route path="/allmovies">
