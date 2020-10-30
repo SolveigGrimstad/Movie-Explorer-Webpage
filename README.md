@@ -29,7 +29,7 @@ Inne i Content.tsx har vi alle filmene som skal vises, består blant annet av un
 
 ## Redux <a name="redux"></a>:
 Redux var noe medlemmene på gruppen ikke hadde vært borti før, så dette var noe vi ønsket å lære oss. Redux gir oss muligheten til å lagre verdier globalt slik at vi kan bruke verdiene ulike steder i applikasjonen vår.
-Dette var noe vi tok i bruk for å gjøre et filtrert søk 
+Dette var noe vi tok i bruk for å gjøre et filtrert søk. De ulike verdiene som brukeren ønsker å filtrere på, blir lagret i en liste som viser alle filmene med de aktuelle sjangerne.   
 
 ## Tredjepartskomponenter <a name="komponenter"></a>:
 Vi har valgt å bruke Materialize som tredjepartskomponent da dette var noe vi hadde kjennskap til fra før. Her fikk vi gjenbrukt mye kode, og alt av design 
