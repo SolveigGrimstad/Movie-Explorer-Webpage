@@ -43,6 +43,14 @@ var mye lettere å håndtere enn om vi hadde implementert fra bunnen av. Fra Mat
 
 ### MongoDB <a name="MongoDB"></a>:
 
+# Testing <a name="Testing"></a>:
+
+## Enhetstestning <a name="Enhetstesting"></a>:
+
+# End-2-end <a name="end-to-end"></a>:
+
+
+# Installering <a name="Installering"></a>:
 
 # Bruk av git <a name="git"></a>:
 Under hele prosjektet har vi brukt git flittig. Vi har alltid sørget for at alle skulle være oppdatert til en vær tid, og vite hvilken branch som har de nyeste oppdateringene. 
