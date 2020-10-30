@@ -39,16 +39,6 @@ export default class UserService {
     }
   }
 
-  //search functionality
-  public movieSearch(query: any, page: number, callback: any) {
-    const perPage = 24;
-
-    movies
-      .find(query, callback)
-      .skip(perPage * (page - 1))
-      .limit(perPage);
-  }
-
   public updateUser(movie_params: IMovie, callback: any) {
     const query = { _id: movie_params._id };
     movies.findOneAndUpdate(query, movie_params, callback);

@@ -30,14 +30,6 @@ class UserService {
             //if no filters, find all the movies
         }
     }
-    //search functionality
-    movieSearch(query, page, callback) {
-        const perPage = 24;
-        schema_1.default
-            .find(query, callback)
-            .skip(perPage * (page - 1))
-            .limit(perPage);
-    }
     updateUser(movie_params, callback) {
         const query = { _id: movie_params._id };
         schema_1.default.findOneAndUpdate(query, movie_params, callback);
