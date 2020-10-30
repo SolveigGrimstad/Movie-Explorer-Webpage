@@ -81,13 +81,13 @@ function Content() {
   }, []);
 
   return (
-    <div>
+    <div >
       <table className="searchbar">
         <tr>
           <div className="searchbar_buttons ">
             <td>
               {" "}
-              <input
+              <input className="searchbarInput"
                 name="search"
                 placeholder="Search for movie..."
                 value={title}
@@ -178,6 +178,9 @@ function Content() {
 
       <div className="movie_container">
         {movies.map((movie) => {
+          if(movie.Title =="The Revenant"){
+            console.log(movie);
+          }
           return (
             <Switch>
               <Route path="/allmovies">

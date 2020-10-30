@@ -54,6 +54,7 @@
     "@types/jquery": "^3.5.3",
     "@types/react-redux": "^7.1.9",
     "@types/redux": "^3.6.0",
-    "@types/redux-thunk": "^2.1.0"
+    "@types/redux-thunk": "^2.1.0",
+    "cypress": "^5.5.0"
   }
 }

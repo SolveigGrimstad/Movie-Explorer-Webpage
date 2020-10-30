@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { prependListener } from "cluster";
 import Heart from "../components/heart";
@@ -6,8 +6,16 @@ import Heart from "../components/heart";
 import axios from "axios";
 
 function Moviebox(props: any) {
-  const [hearts, setHearts] = useState<number>(props.starRating);
 
+  useEffect(() => { setHearts(props.starRating) } ,[])
+  
+  
+
+  const [hearts, setHearts] = useState<number>(0);
+  const [like, setLike] = useState<number>(0);
+
+console.log(props.title);
+console.log(props.starRating)
   const handleClick = () => {
     setColor(!color);
     console.log("halooo");
@@ -16,9 +24,11 @@ function Moviebox(props: any) {
       axios.put(`http://localhost:8000/api/dislike/${props.id}`);
 
       setHearts(hearts - 1);
+      setLike(like -1);
     } else {
       axios.put(`http://localhost:8000/api/like/${props.id}`);
       setHearts(hearts + 1);
+      setLike(like+1);
     }
   };
 
@@ -48,12 +58,15 @@ function Moviebox(props: any) {
         {props.actors}
 
         <div className="card-star">
-          <span className="divHeart" onClick={handleClick}>
+          <span className="divHeart" onClick={() => handleClick()}>
             <Heart isRed={color} size={35} />
           </span>
 
-          <p>Antall som anbefaler denne filmen: {hearts}</p>
-        </div>
+          <p>Antall som anbefaler denne filmen: {(props.starRating + like ).toString()}</p>
+          
+                  
+                  
+          </div>
 
         <h5>{props.rating}</h5>
         <p>{props.summary}</p>
