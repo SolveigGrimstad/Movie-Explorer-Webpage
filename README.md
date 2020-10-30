@@ -42,8 +42,11 @@ Vi har valgt å bruke Materialize som tredjepartskomponent da dette var noe vi h
 var mye lettere å håndtere enn om vi hadde implementert fra bunnen av. Fra Materialize hentet vi blant annet design til header, footer, slideshow og filmkomponentene.
 
 ### MongoDB <a name="MongoDB"></a>:
-For å legge til data i databasen startet vi først med et public API, men fant ut når vi skulle vise dataen at APIet ikke inneholdt bilder. Derfor bestemte vi oss litt ut i prosjektet
-om å bytte API slik at vi fikk med bilder.
+For å legge til data i databasen startet vi først med et public API der vi fikk lastet ned en .csv-fil vi bare kunne laste opp i MongoDB. 
+Når vi da skulle vise dataen fra APIet, fant vi ut at det ikke inneholdt bilder, som var noe vi ønsket. Derfor bestemte vi oss for å bytte API, til et API med bilder. 
+Dette var litt mer jobb, siden det eneste APIet vi fant var et API som var avhengig av IMDB sin film ID. Derfor var vi nødt til å beholde ID-ene vi fikk fra det første APIet 
+og lage et script som gikk gjennom alle ID-ene for deretter å hente ut resterende informasjon fra APIet som hadde mer utfyllende informasjon. Deretter måtte all informasjonen 
+bli skrevet inn i en .csv-fil slik at det kunne bli lastet opp på MongoDB. API-et vi brukte tillot kun å ta ut ca 900 filmer per dag, og vi tenkte dette ville holde for vår funksjonalitet. 
 
 # Testing <a name="Testing"></a>:
 
