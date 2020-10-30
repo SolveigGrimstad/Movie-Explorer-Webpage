@@ -37,6 +37,7 @@ Stylingen i dette prosjektet har vi prøvd å holde ganske enkel da det meste ko
 ### Redux <a name="redux"></a>:
 Redux var noe medlemmene på gruppen ikke hadde vært borti før, så dette var noe vi ønsket å lære oss. Redux gir oss muligheten til å lagre verdier globalt slik at vi kan bruke verdiene ulike steder i applikasjonen vår.
 Dette var noe vi tok i bruk for å gjøre et filtrert søk. De ulike verdiene som brukeren ønsker å filtrere på, blir lagret i en liste som viser alle filmene med de aktuelle sjangerne.   
+SKRIV MER OM STORE.ts
 
 ### REST API <a name="REST API"></a>:
 
