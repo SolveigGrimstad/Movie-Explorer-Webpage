@@ -23,6 +23,7 @@ lite sammendrag. Her vil du også få muligheten til å se hvor mange som har li
 (samt unlike hvis du ombestemmer deg). Brukeren kan både søke, filtrere og sortere på hele filmsettet, og resultatet blir representert 
 på ulike sider man kan bla seg gjennom.
 
+
 # Teknologi <a name="teknologi"></a>:
 
 
@@ -43,4 +44,7 @@ var mye lettere å håndtere enn om vi hadde implementert fra bunnen av. Fra Mat
 # Bruk av git <a name="git"></a>:
 Under hele prosjektet har vi brukt git flittig. Vi har alltid sørget for at alle skulle være oppdatert til en vær tid, og vite hvilken branch som har de nyeste oppdateringene. 
 I tillegg var det også viktig for oss å alltid ha en back-up-branch der all nylig implementert funksjonalitet fungerte som det skulle slik at vi alltid hadde noe 
-å gå tilbake til dersom ting ikke fungerer som det skal.
+å gå tilbake til dersom ting ikke fungerte som det skulle. I dette prosjektet har vi opprettet utrolig mange brancher siden vi har gjort mye feil og har måttet gått frem og tilbake
+flere ganger. I tillegg var vi ikke så 
+
+
