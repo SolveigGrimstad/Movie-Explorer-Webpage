@@ -28,7 +28,8 @@ Prosjektet vårt er satt opp av ulike komponenter der alt blir satt sammen i App
 Inne i Content.tsx har vi alle filmene som skal vises, består blant annet av underkomponenter som moviebox som viser alle filmkomponentene, filternav som viser de ulike filtrene. 
 
 ## Redux <a name="redux"></a>:
-Redux var noe medlemmene på gruppen ikke hadde vært borti før.
+Redux var noe medlemmene på gruppen ikke hadde vært borti før, så dette var noe vi ønsket å lære oss. Redux gir oss muligheten til å lagre verdier globalt slik at vi kan bruke verdiene ulike steder i applikasjonen vår.
+Dette var noe vi tok i bruk for å gjøre et filtrert søk 
 
 ## Tredjepartskomponenter <a name="komponenter"></a>:
 Vi har valgt å bruke Materialize som tredjepartskomponent da dette var noe vi hadde kjennskap til fra før. Her fikk vi gjenbrukt mye kode, og alt av design 
