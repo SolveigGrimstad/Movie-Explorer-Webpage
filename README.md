@@ -41,6 +41,9 @@ Dette var noe vi tok i bruk for å gjøre et filtrert søk. De ulike verdiene so
 Vi har valgt å bruke Materialize som tredjepartskomponent da dette var noe vi hadde kjennskap til fra før. Her fikk vi gjenbrukt mye kode, og alt av design 
 var mye lettere å håndtere enn om vi hadde implementert fra bunnen av. Fra Materialize hentet vi blant annet design til header, footer, slideshow og filmkomponentene.
 
+### MongoDB <a name="MongoDB"></a>:
+
+
 # Bruk av git <a name="git"></a>:
 Under hele prosjektet har vi brukt git flittig. Vi har alltid sørget for at alle skulle være oppdatert til en vær tid, og vite hvilken branch som har de nyeste oppdateringene. 
 I tillegg var det også viktig for oss å alltid ha en back-up-branch der all nylig implementert funksjonalitet fungerte som det skulle slik at vi alltid hadde noe 
@@ -49,4 +52,7 @@ flere ganger. Fra tidligere prosjekt, ville vi forbedre oss på det med commits 
 Som sagt, har vi prøvd mye forskjellig og testet mye ulik funksjonalitet/setup som har resultert i noen ugunstige branchnavn. Commitsene derimot, har vi vært litt mer konsekvens og 
 vært litt mer beskrivende i forhold til hvilke funksjonalitet vi ønsket å implementere. 
 
+# Sources <a name="source"></a>:
+https://materializecss.com/
+http://www.omdbapi.com/
 
