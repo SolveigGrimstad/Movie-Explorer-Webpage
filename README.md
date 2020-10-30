@@ -30,8 +30,8 @@ spesifisert søk.
 
 
 ### React <a name="react"></a>:
-Prosjektet vårt er satt opp av ulike komponenter der alt blir satt sammen i App.tsx. Derifra er det en Router som bytter mellom hjemsiden og siden som viser alle filmene.
-Inne i Content.tsx har vi alle filmene som skal vises, består blant annet av underkomponenter som moviebox som viser alle filmkomponentene, filternav som viser de ulike filtrene.
+Prosjektet er basert på React og har blitt initialisert med create-react-app. Vårt prosjekt er satt opp av ulike komponenter der alt blir satt sammen i App.tsx. Derifra er det en
+Router som bytter mellom hjemsiden og siden som viser alle filmene. Inne i Content.tsx har vi alle filmene som skal vises, består blant annet av underkomponenter som moviebox som viser alle filmkomponentene, filternav som viser de ulike filtrene.
 Stylingen i dette prosjektet har vi prøvd å holde ganske enkel da det meste kom med Materialize. 
 
 ### Redux <a name="redux"></a>:
@@ -61,6 +61,10 @@ bli skrevet inn i en .csv-fil slik at det kunne bli lastet opp på MongoDB. API-
 
 
 # Installering <a name="Installering"></a>:
+
+1. Klon repoet med SSH/HTTP i ønsket lokasjon.
+
+2. Lokaliser deg inn i frontend-mappen og skriv npm install etterfulgt av npm start
 
 # Bruk av git <a name="git"></a>:
 Under hele prosjektet har vi brukt git flittig. Vi har alltid sørget for at alle skulle være oppdatert til en vær tid, og vite hvilken branch som har de nyeste oppdateringene. 
