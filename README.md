@@ -23,13 +23,13 @@ lite sammendrag. Her vil du også få muligheten til å se hvor mange som har li
 (samt unlike hvis du ombestemmer deg). Brukeren kan både søke, filtrere og sortere på hele filmsettet, og resultatet blir representert 
 på ulike sider man kan bla seg gjennom.
 
-#React
+## React <a name="react"></a>:
 Prosjektet vårt er satt opp av ulike komponenter der alt blir satt sammen i App.tsx. Derifra er det en Router som bytter mellom hjemsiden og siden som viser alle filmene.
 Inne i Content.tsx har vi alle filmene som skal vises, består blant annet av underkomponenter som moviebox som viser alle filmkomponentene, filternav som viser de ulike filtrene. 
 
-#Redux
+## Redux <a name="redux"></a>:
 Redux var noe medlemmene på gruppen ikke hadde vært borti før.
 
-## Tredjepartskomponenter
+## Tredjepartskomponenter <a name="komponenter"></a>:
 Vi har valgt å bruke Materialize som tredjepartskomponent da dette var noe vi hadde kjennskap til fra før. Her fikk vi gjenbrukt mye kode, og alt av design 
 var mye lettere å håndtere enn om vi hadde implementert fra bunnen av. 
