@@ -14,7 +14,7 @@ describe('Searchbar', () => {
           .should('have.value', typeInput);
       });
 
-    it('Gets the correct element', () =>{
+    it('Gets the correct elements', () =>{
         const typeInput = 'Shrek';
         cy.fixture('Shrek').as('Shrek');
         cy.server();
