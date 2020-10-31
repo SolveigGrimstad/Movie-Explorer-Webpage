@@ -2,10 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const schema_1 = require("./schema");
 class UserService {
-    actionMovie(query, //search
-    filterquery, req, //sort request
+    actionMovie(query, 
+    //search query
+    filterquery, 
+    //list of filters
+    req, 
+    //sort request
     page, 
-    //likes:number,
+    //which page
     callback) {
         const perPage = 24; //24 movies per page
         const sort = String(req.params.sort);

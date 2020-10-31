@@ -9,11 +9,11 @@ class movieController {
     }
     get_movie(req, res) {
         const page = Math.max(0, parseInt(req.params.page));
+        //which page
         const title = req.query.title;
         let filters = req.query.filter.toString().split(",");
-        this.movie_service.actionMovie(title, filters, req, page, 
-        // likes,
-        (err, movie_data) => {
+        //list of filters where every object is splitted with a comma
+        this.movie_service.actionMovie(title, filters, req, page, (err, movie_data) => {
             if (err) {
                 service_1.mongoError(err, res);
             }
