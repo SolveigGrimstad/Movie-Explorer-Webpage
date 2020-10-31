@@ -17,12 +17,12 @@
 
 # Om prosjektet <a name="om"></a>:
 I dette prosjektet har vi laget en nettside for filmsøk. Webapplikasjonen lar deg søke, filtrere, sortere, bla og like filmer. 
-Når du kommer inn på hovedsiden kan du trykke deg inn på "Movies", hvor vi har hentet inn nærmere 900 filmer fra et public API. 
-Når du trykker på filmposterne får man opp ytterlige informasjon om filmene som blant annet tittel, utgivelsesår, varighet og et 
-lite sammendrag. Her vil du også få muligheten til å se hvor mange som har likt filmen, samt gi din egen like 
+Når du kommer inn på hovedsiden kan du trykke deg inn på "Movies" øverst i navigasjonsbaren, der du kan finne nærmere 900 filmer vi har hentet fra et public API. 
+Trykker på filmposterne vil du få opp ytterlige informasjon om filmene som blant annet tittel, utgivelsesår, varighet, IMDB-rating og et 
+lite sammendrag av hver film. Her vil du også få muligheten til å se hvor mange som har likt filmen, samt gi din egen like 
 (samt unlike hvis du ombestemmer deg). Brukeren kan både søke, filtrere og sortere på hele filmsettet, og resultatet blir representert 
-på ulike sider man kan bla seg gjennom. Vi har satt default sorteringen som Rating, da vi tenker at dette er det mest naturlige valget så de best 
-rangerte filmene havner øverst. Både søk, filtrering og sortering skal fungere om hverandre og man kan gjøre alle operasjonene samtidig dersom man ønsker et mer 
+på ulike sider man kan bla seg gjennom. Vi har satt default sorteringen som Rating, siden vi tenker at dette er det mest naturlige valget slik at de best
+rangerte filmene havner øverst. Både søk, filtrering og sortering fungerer om hverandre og man kan gjøre alle operasjonene samtidig dersom man ønsker et mer 
 spesifisert søk. 
 
 
