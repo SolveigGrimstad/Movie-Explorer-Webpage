@@ -40,7 +40,7 @@ function Content() {
   const initiateSort = (e: any) => {
     setSort(e);
     setPage(1);
-    //sets the page to be page nr 1, when user search
+    //sets the page to be page nr 1, when user sort
   };
   //console.log(filters);
   const params = new URLSearchParams([
@@ -50,7 +50,7 @@ function Content() {
   //list of comma in filters
 
   useEffect(() => {
-    // gets all the movies
+    // gets all the movies. Title is if the user search for something. If now, shows all the movies
     const getMovies = async () => {
       const api_url =
         "http://localhost:8000/api/movies/" +
@@ -60,9 +60,6 @@ function Content() {
         "/?title=" +
         title;
 
-      console.log(api_url, { params });
-
-      //if the search field is empty, shows all the movies
       await axios.get(api_url, { params }).then((response) => {
         setMovies(response.data.DATA);
       });
@@ -99,6 +96,7 @@ function Content() {
 
             <td>
               <button
+                //opens the filternav component
                 onClick={() => setOpen(!open)}
                 className="waves-effect deep-purple lighten-1 btn"
               >
@@ -111,6 +109,7 @@ function Content() {
                 <button
                   className="dropdown-trigger waves-effect deep-purple lighten-1 btn"
                   data-target="dropdown1"
+                  //changing the "sort by" button, depending on what the user wants to sort on
                 >
                   Sort by{" "}
                   {sort === "Ratings" ? (
@@ -148,8 +147,10 @@ function Content() {
       </table>
 
       {open && <Filternav />}
+
       <ul className="pagination">
         {page > 1 && (
+          //pagination, arrows for when page 1 and when less than 24 movies per page
           <li className="hei">
             <a href="#!">
               <i
@@ -193,6 +194,7 @@ function Content() {
             <Switch>
               <Route path="/allmovies">
                 <Moviebox
+                  //sending parameters
                   title={movie.Title}
                   imageUrl={movie.Poster}
                   actors={movie.Actors}
@@ -214,6 +216,7 @@ function Content() {
       </div>
       <ul className="pagination">
         {page > 1 && (
+          //same pagination in the buttom of the page
           <li className="hei">
             <a href="#!">
               <i
@@ -252,7 +255,3 @@ function Content() {
 }
 
 export default Content;
-
-/**
- * card-reveal div with a span.card-title inside to make this work. Add the class activator to an element inside the card to allow it to open the card reveal.
- */

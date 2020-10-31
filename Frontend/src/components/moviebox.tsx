@@ -8,12 +8,14 @@ import axios from "axios";
 function Moviebox(props: any) {
   const [hearts, setHearts] = useState<number>(props.starRating);
   const [like, setLike] = useState<number>(0);
+  //likebutton
 
   useEffect(() => {
     setHearts(props.starRating);
   }, []);
 
   const handleClick = () => {
+    //when liking, changing color and the count decreases/increases
     setColor(!color);
 
     if (color == true) {

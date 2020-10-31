@@ -5,6 +5,7 @@ export type filterAction = {
   payload: string;
 };
 
+//Reducer-funksjonen, initialiserer store.ts med tom liste
 export default function filterReducer(
   state: string[] = [],
   action: filterAction

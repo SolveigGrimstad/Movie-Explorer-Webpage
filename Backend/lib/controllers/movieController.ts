@@ -9,15 +9,16 @@ export class movieController {
 
   public get_movie(req: Request, res: Response) {
     const page = Math.max(0, parseInt(req.params.page));
+    //which page
     const title = req.query.title;
-
     let filters = req.query.filter.toString().split(",");
+    //list of filters where every object is splitted with a comma
+
     this.movie_service.actionMovie(
       title,
       filters,
       req,
       page,
-      // likes,
       (err: any, movie_data: IMovie) => {
         if (err) {
           mongoError(err, res);

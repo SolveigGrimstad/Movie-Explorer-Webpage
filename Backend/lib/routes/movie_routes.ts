@@ -9,7 +9,9 @@ export class MovieRoutes {
     app.get("/api/movies/:sort/:page/", (req: Request, res: Response) => {
       this.movie_controller.get_movie(req, res);
     });
+    //route for searching, filter, and sort
 
+    //updates the database with likes/dislikes
     app.put("/api/like/:movieid", async (req, res) => {
       movies
         .findOneAndUpdate(

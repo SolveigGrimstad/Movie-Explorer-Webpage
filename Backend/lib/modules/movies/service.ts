@@ -3,11 +3,14 @@ import movies from "./schema";
 
 export default class UserService {
   public actionMovie(
-    query: any, //search
+    query: any,
+    //search query
     filterquery: any,
-    req: any, //sort request
+    //list of filters
+    req: any,
+    //sort request
     page: number,
-    //likes:number,
+    //which page
     callback: any
   ) {
     const perPage = 24; //24 movies per page
