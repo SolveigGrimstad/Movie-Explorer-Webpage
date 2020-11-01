@@ -101,10 +101,10 @@ a
 
 <img src="test.png" alt="Moviebiblotek" width="400" />
 
-
+Gjennomgående testing av applikasjonen er viktig for å kunne sikre konsekvent funksjonalitet og responsivitet på forskjellige bruksenheter.
 ## End-2-end <a name="end-to-end"></a>:
 Vi valgte å bruke Cypress til end-2-end testing. Cypress ga oss gode tilbakebeldigner på tilsatanden til siden. Vi valgte å teste søk-funksjonen og bla i filmene. 
-Det er viktig å ha gode tester og for videre utvikling ville vi ha testet filter og sortering også. Testene ligger under ````Frontend/Cypress/Integration````
+Det er viktig å ha gode tester for applikasjonen for å sikre konsekvenr funksjonalitet og responsivitet på forskjellige bruksenheter. For videre utvikling ville vi ha testet filter og sortering også. Testene ligger under ````Frontend/Cypress/Integration````
 
 For å kjøre testene, må både Frontend og Backend være startet med 
 ````
