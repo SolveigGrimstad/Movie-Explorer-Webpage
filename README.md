@@ -109,6 +109,7 @@ a
 <img src="e2e2.png" alt="Moviebiblotek" width="400" />
 
 # Installering <a name="Installering"></a>:
+For å kunne kjøre prosjektet må man enten være koblet til NTNU nett eller NTNUs VPN. 
 
 1. Klon git repoet med SSH/HTTP i ønsket lokasjon.
 
