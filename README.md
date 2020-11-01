@@ -54,7 +54,7 @@ Vi har også opprettet et endepunkt for brukergenerert data:
 Put: "/api/dislike/:movieid"
 ````
 Put brukes for å sende data til databasen, slik at når en bruker liker en film med en gitt movieid vil dette oppdateres i databasen.  
-Inne i modules mappen finner man skjema,model.ts(interfacet) og services. Interfacet viser hvilken data vi ønsker å ha med fra databasen. 
+Inne i modules mappen finner man schema.ts ,model.ts(interfacet) og service.ts. Interfacet viser hvilken data vi ønsker å ha med fra databasen. 
 I service.ts og movieController.ts ligger alt av spørringer og logikk for søk, filtrering og sortering. I config mappen finner man app.ts 
 som blant annet tar for seg koblingen med databasen. 
 
@@ -76,10 +76,10 @@ tillot kun å ta ut ca 900 filmer per dag, og vi tenkte dette ville holde for v�
 # Testing <a name="Testing"></a>:
 
 ## Enhetstestning <a name="Enhetstesting"></a>:
-For enhetstesting har vi benyttet oss av Jest og Enzyme. Alle testene ligger under test mappen inne src. Vi har blant annet benyttet oss av expect i jest for å sjekke om en 
+For enhetstesting har vi benyttet oss av Jest og Enzyme. Alle testene ligger under test mappen inne src. Vi har benyttet oss av expect i Jest for å sjekke om en 
 fil inneholder og returnerer det vi ønsker. Vi bruker Enzyme for å lage en shallow rendering av komponentene vi ønsker å teste.Vi har også kjørt en snapshottest i homepage.test.tsx.
 Vi fikk litt dårlig tid på slutten av prosjektet og fikk dermed ikke satt oss så mye inn i enhetstesting som vi ønsket. Vi skulle gjerne tatt i bruk mock og litt mer avanserte enhetstester
-enn det vi gjør, men dette er noe vi må se videre på ved senere prosjekter. 
+enn det vi gjør, men dette er noe vi må se videre på ved senere prosjekter. Vi valgte derfor å prioritere end-to-end i dette prosjektet. 
 
 ## End-2-end <a name="end-to-end"></a>:
 
@@ -113,4 +113,5 @@ vært litt mer beskrivende i forhold til hvilke funksjonalitet vi ønsket å imp
 * https://materializecss.com/
 
 * http://www.omdbapi.com/
+* https://levelup.gitconnected.com/setup-restful-api-with-node-js-express-mongodb-using-typescript-261959ef0998
 
