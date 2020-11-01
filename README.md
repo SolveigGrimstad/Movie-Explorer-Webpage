@@ -19,9 +19,9 @@
 I dette prosjektet har vi laget en nettside for filmsøk. Webapplikasjonen lar deg søke, filtrere, sortere, bla og like filmer. 
 Når du kommer inn på hovedsiden kan du trykke deg inn på "Movies" øverst i navigasjonsbaren, der du kan finne nærmere 900 filmer vi har hentet fra et public API. 
 Trykker du på filmposterne vil du få opp ytterlige informasjon om filmene som blant annet tittel, utgivelsesår, varighet, IMDB-rating og et 
-lite sammendrag av hver film. Her vil du også få muligheten til å se hvor mange som har likt filmen, samt gi din egen like 
-(samt unlike hvis du ombestemmer deg). Brukeren kan både søke, filtrere og sortere på hele filmsettet, og resultatet blir representert 
-på ulike sider man kan bla seg gjennom. Vi har satt default sorteringen som Rating, siden vi tenker at dette er det mest naturlige valget slik at de best
+lite sammendrag av hver film. Her vil du også få muligheten til å se hvor mange som har likt filmen, samt gi din egen like/unlike 
+ved å trykke på hjertet. Brukeren kan både søke, filtrere og sortere på hele filmsettet, og resultatet blir representert 
+på ulike sider man kan bla seg gjennom. Vi har satt default sorteringen basert på rangering, siden vi tenker at dette er det mest naturlige valget slik at de best
 rangerte filmene havner øverst. Både søk, filtrering og sortering fungerer om hverandre og man kan gjøre alle operasjonene samtidig dersom man ønsker et mer 
 spesifisert søk. 
 
@@ -32,13 +32,13 @@ spesifisert søk.
 
 ### React <a name="react"></a>:
 Prosjektet er basert på React og har blitt initialisert med create-react-app. Vårt prosjekt er satt opp av ulike komponenter der alt blir satt sammen i App.tsx. Derifra er det en
-Router som bytter mellom hjemsiden og siden som viser alle filmene. Inne i Content.tsx har vi alle filmene som skal vises, består blant annet av underkomponenter som moviebox som viser alle filmkomponentene, filternav som viser de ulike filtrene.
+Router som bytter mellom hjemsiden og siden som viser alle filmene. Inne i content.tsx har vi alle filmene som skal vises, består blant annet av underkomponenter som moviebox som viser alle filmkomponentene, filternav som viser de ulike filtrene.
 Stylingen i dette prosjektet har vi prøvd å holde ganske enkel da det meste kom med Materialize. 
 
 ### Redux <a name="redux"></a>:
 Redux var noe medlemmene på gruppen ikke hadde vært borti før, så dette var noe vi ønsket å lære oss. Redux gir oss muligheten til å lagre verdier globalt slik at vi kan bruke verdiene ulike steder i applikasjonen vår.
 Dette var noe vi tok i bruk for å gjøre et filtrert søk. De ulike verdiene som brukeren ønsker å filtrere på, blir lagret i en liste som viser alle filmene med de aktuelle sjangerne. Dette blir gjort i store.tsx og ved 
-hjelp av en Reducer funksjon som ligger i updateGenreFilter.ts som legger til nye filtre i listen. Ved å ta i bruk Redux Devtools, som er en extention i Google Chrome, kan vi nå sjekke om filtre som blir krysset av blir lagt i staten. 
+hjelp av en Reducer-funksjon som ligger i updateGenreFilter.ts som legger til nye filtre i listen. Ved å ta i bruk Redux Devtools, som er en extention i Google Chrome, kan vi nå sjekke om filtre som blir krysset av blir lagt i staten. 
 
 ### REST API <a name="REST API"></a>:
 Vi implementerte et REST API med Node.js, Express og MongoDB som database. Løsningene er implementert ved hjelp av typescript og vi brukte [denne](https://levelup.gitconnected.com/setup-restful-api-with-node-js-express-mongodb-using-typescript-261959ef0998) guiden for å sette opp REST APIet. Vi bestemte oss for å bruke REST API istedenfor
@@ -59,7 +59,7 @@ I service.ts og movieController.ts ligger alt av spørringer og logikk for søk,
 som blant annet tar for seg koblingen med databasen. 
 
 ### Tredjepartskomponenter <a name="komponenter"></a>:
-Vi har valgt å bruke Materialize som tredjepartskomponent da dette var noe vi hadde kjennskap til fra før. Her fikk vi gjenbrukt mye kode, og alt av design 
+I denne prosjektet brukte vi Materialize som tredjepartskomponent da dette var noe vi hadde kjennskap til fra før. Her fikk vi gjenbrukt mye kode, og alt av design 
 var mye lettere å håndtere enn om vi hadde implementert fra bunnen av. Fra Materialize hentet vi blant annet design til header, footer, slideshow og filmkomponentene. 
 I tilegg ble noe Java-script importert fra bibloteket deres som gjorde at for eksempel slideshowet, og det at info kommer opp dersom man trykker på en filmkomponent.
 
@@ -67,10 +67,9 @@ I tilegg ble noe Java-script importert fra bibloteket deres som gjorde at for ek
 For å legge til data i databasen startet vi først med et public API der vi fikk lastet ned en .csv-fil vi bare kunne laste opp i MongoDB. 
 Når vi da skulle vise dataene fra APIet, fant vi ut at det ikke inneholdt bilder, som var noe vi ønsket. Derfor bestemte vi oss for å bytte API, til et API med bilder. 
 Dette var litt mer jobb, siden det eneste APIet vi fant var et API som var avhengig av IMDB sin film ID. Derfor var vi nødt til å beholde ID-ene vi fikk fra det første APIet 
-og lage et script som gikk gjennom alle ID-ene for deretter å hente ut resterende informasjon fra APIet som hadde mer utfyllende informasjon. Deretter måtte all informasjonen 
-bli skrevet inn i en .csv-fil slik at det kunne bli lastet opp på MongoDB. Dette gjorde vi i Backend mappen i fetchmovies og movie_ids i controller mappen. API-et vi brukte 
+og lage et script  som gikk gjennom alle ID-ene for deretter å hente ut resterende informasjon fra et API som hadde mer utfyllende informasjon som bilder og plot. Deretter måtte all informasjonen 
+bli skrevet inn i en .csv-fil slik at det kunne bli lastet opp på MongoDB. Dette gjorde vi i Backend -> controller i fetchMovies og movie_ids. API-et vi brukte 
 tillot kun å ta ut ca 900 filmer per dag, og vi tenkte dette ville holde for vår funksjonalitet. 
- 
 
 
 # Testing <a name="Testing"></a>:
