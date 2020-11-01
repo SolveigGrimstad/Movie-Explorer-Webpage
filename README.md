@@ -38,7 +38,7 @@ Prosjektet er basert på React og har blitt initialisert med create-react-app. D
 Vårt prosjekt er satt opp av ulike komponenter der alt blir satt sammen i App.tsx. Derfra er det en
 Router som bytter mellom hjemmesiden og siden som viser alle filmene. Inne i Content.tsx har vi alle filmene som skal vises, består blant annet av underkomponenter som moviebox som viser alle film-komponentene, filternav som viser de ulike filtrene. For å sende med ulike parametere fra databasen til ulike komponenter, har vi tatt i bruk props.
 
-Vi har i tillegg lagt til en funksjon som gjør at en bruker kan like en film. Dette er gjort med ##SOLVEIG
+Vi har i tillegg lagt til en funksjon som gjør at en bruker kan like en film. Dette er gjort med** ##SOLVEIG**
 
 Stylingen i dette prosjektet har vi prøvd å holde ganske enkel da det meste kom med Materialize. I tillegg har vi tatt i bruk flexbox og tabeller for å få alt til å ligge som vi ønsket. 
 
@@ -103,6 +103,8 @@ a
 
 
 ## End-2-end <a name="end-to-end"></a>:
+
+**##SOLVEIG** skriv også hvordan man kjører testene sånn som vi har gjort på enhetstesting ovenfor
 
 <img src="e2e1.png" alt="Moviebiblotek" width="400" />
 
