@@ -60,7 +60,7 @@ function Moviebox(props: any) {
 
         <div className="card-star">
           <span className="divHeart" onClick={() => handleClick()}>
-            <Heart isRed={color} size={35} />
+            <Heart isRed={color} size={35}/>
           </span>
           <p>
             Likes on this movie: <b>{(props.starRating + like).toString()}</b>
