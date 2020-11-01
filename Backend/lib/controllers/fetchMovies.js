@@ -2,8 +2,9 @@ const Movie_ids = require("./movie_ids.js");
 const fetch = require("node-fetch");
 const fs = require("fs");
 
-//const API_KEY = "56b0bf5a";
-const API_KEY = "4f25cd6d"; //larsi sin API key
+//script for getting all the movies from the API to the database 
+
+const API_KEY = "4f25cd6d"; 
 
 let movie_list = [];
 
@@ -43,6 +44,7 @@ for (i = 0; i < Movie_ids.length; i++) {
   console.log("larsi");
 }
 
+//write to a .csv - file so we can upload in MongoDB 
 const createCsvWriter = require("csv-writer").createObjectCsvWriter;
 const csvWriter = createCsvWriter({
   path: "outern.csv",
@@ -62,6 +64,7 @@ const csvWriter = createCsvWriter({
   ],
 });
 
+//timeout so it wont write until everything is ready 
 setTimeout(
   () =>
     csvWriter.writeRecords(movie_list).then(() => {

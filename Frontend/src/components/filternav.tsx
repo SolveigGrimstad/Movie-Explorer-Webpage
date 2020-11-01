@@ -1,11 +1,13 @@
 import React from "react";
-import { updateGenreFilter } from "../store/store";
-import { useDispatch } from "react-redux";
+import { store, updateGenreFilter } from "../store/store";
+import { Provider, useDispatch } from "react-redux";
 
 function Filternav() {
   const dispatch = useDispatch();
 
+
   return (
+
     <table className="filternav ">
       <tr>
         <td>
@@ -179,6 +181,7 @@ function Filternav() {
         </td>
       </tr>
     </table>
+    
   );
 }
 

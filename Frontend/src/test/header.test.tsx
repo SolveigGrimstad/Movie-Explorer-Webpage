@@ -12,4 +12,4 @@ describe('Header', () => {
         expect(text.text()).toBe('MovieSelector');
     })
     
-})
+});

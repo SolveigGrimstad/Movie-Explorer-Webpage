@@ -8,10 +8,13 @@ import Movieinfo from "./components/movieinfo";
 import "../src/styling/materialize.css";
 import "../src/styling/materialize.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 function App() {
   return (
     <div className="App">
+  
       <Router>
         <Header />
 
