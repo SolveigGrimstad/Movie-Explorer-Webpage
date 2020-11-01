@@ -27,18 +27,30 @@ spesifisert søk.
 
 <img src="moviebib.png" alt="Moviebiblotek" width="600" />
 
+<img src="moviesearch.png" alt="Moviebiblotek" width="600" />
+
 # Teknologi <a name="teknologi"></a>:
 
 
 ### React <a name="react"></a>:
-Prosjektet er basert på React og har blitt initialisert med create-react-app. Vårt prosjekt er satt opp av ulike komponenter der alt blir satt sammen i App.tsx. Derifra er det en
-Router som bytter mellom hjemsiden og siden som viser alle filmene. Inne i content.tsx har vi alle filmene som skal vises, består blant annet av underkomponenter som moviebox som viser alle filmkomponentene, filternav som viser de ulike filtrene.
-Stylingen i dette prosjektet har vi prøvd å holde ganske enkel da det meste kom med Materialize. 
+Prosjektet er basert på React og har blitt initialisert med create-react-app. De funksjonelle komponentene og klassene er implementert ved hjelp av JSX og Typescript. 
+
+Vårt prosjekt er satt opp av ulike komponenter der alt blir satt sammen i App.tsx. Derfra er det en
+Router som bytter mellom hjemmesiden og siden som viser alle filmene. Inne i Content.tsx har vi alle filmene som skal vises, består blant annet av underkomponenter som moviebox som viser alle film-komponentene, filternav som viser de ulike filtrene. For å sende med ulike parametere fra databasen til ulike komponenter, har vi tatt i bruk props.
+
+Vi har i tillegg lagt til en funksjon som gjør at en bruker kan like en film. Dette er gjort med ##SOLVEIG
+
+Stylingen i dette prosjektet har vi prøvd å holde ganske enkel da det meste kom med Materialize. I tillegg har vi tatt i bruk flexbox og tabeller for å få alt til å ligge som vi ønsket. 
+
 
 ### Redux <a name="redux"></a>:
 Redux var noe medlemmene på gruppen ikke hadde vært borti før, så dette var noe vi ønsket å lære oss. Redux gir oss muligheten til å lagre verdier globalt slik at vi kan bruke verdiene ulike steder i applikasjonen vår.
 Dette var noe vi tok i bruk for å gjøre et filtrert søk. De ulike verdiene som brukeren ønsker å filtrere på, blir lagret i en liste som viser alle filmene med de aktuelle sjangerne. Dette blir gjort i store.tsx og ved 
 hjelp av en Reducer-funksjon som ligger i updateGenreFilter.ts som legger til nye filtre i listen. Ved å ta i bruk Redux Devtools, som er en extention i Google Chrome, kan vi nå sjekke om filtre som blir krysset av blir lagt i staten. 
+
+
+
+<img src="moviefilter.png" alt="Moviebiblotek" width="600" />
 
 ### REST API <a name="REST API"></a>:
 Vi implementerte et REST API med Node.js, Express og MongoDB som database. Løsningene er implementert ved hjelp av typescript og vi brukte [denne](https://levelup.gitconnected.com/setup-restful-api-with-node-js-express-mongodb-using-typescript-261959ef0998) guiden for å sette opp REST APIet. Vi bestemte oss for å bruke REST API istedenfor
@@ -80,8 +92,15 @@ fil inneholder og returnerer det vi ønsker. Vi bruker Enzyme for å lage en sha
 Vi fikk litt dårlig tid på slutten av prosjektet og fikk dermed ikke satt oss så mye inn i enhetstesting som vi ønsket. Vi skulle gjerne tatt i bruk mock og litt mer avanserte enhetstester
 enn det vi gjør, men dette er noe vi må se videre på ved senere prosjekter. Vi valgte derfor å prioritere end-to-end i dette prosjektet. 
 
+
+<img src="test.png" alt="Moviebiblotek" width="400" />
+
+
 ## End-2-end <a name="end-to-end"></a>:
 
+<img src="e2e1.png" alt="Moviebiblotek" width="400" />
+
+<img src="e2e2.png" alt="Moviebiblotek" width="400" />
 
 # Installering <a name="Installering"></a>:
 
