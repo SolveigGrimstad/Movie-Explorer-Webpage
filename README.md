@@ -70,6 +70,7 @@ Inne i modules mappen finner man schema.ts ,model.ts(interfacet) og service.ts. 
 I service.ts og movieController.ts ligger alt av spørringer og logikk for søk, filtrering og sortering. I config mappen finner man app.ts 
 som blant annet tar for seg koblingen med databasen. 
 
+
 ### Tredjepartskomponenter <a name="komponenter"></a>:
 I denne prosjektet brukte vi Materialize som tredjepartskomponent da dette var noe vi hadde kjennskap til fra før. Her fikk vi gjenbrukt mye kode, og alt av design 
 var mye lettere å håndtere enn om vi hadde implementert fra bunnen av. Fra Materialize hentet vi blant annet design til header, footer, slideshow og filmkomponentene. 
@@ -106,7 +107,18 @@ enn det vi gjør, men dette er noe vi må se videre på ved senere prosjekter. V
 
 1. Klon repoet med SSH/HTTP i ønsket lokasjon.
 
-2. Lokaliser deg inn i frontend-mappen og skriv npm install etterfulgt av npm start
+2. Lokaliser deg inn i frontend-mappen og skriv npm install 
+3. Deretter lokaliser deg til backend mappen og kjør 
+
+````
+npm run dev
+````
+4. Gå deretter inn i frontend mappen og kjør 
+
+````
+npm start
+````
+
 
 # Bruk av git <a name="git"></a>:
 Under hele prosjektet har vi brukt git flittig. Hele prosjektet startet med å sette opp wireframes slik at vi alle var inneforstått med hvordan vi ønsket at siden skulle se ut.
