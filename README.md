@@ -93,6 +93,11 @@ fil inneholder og returnerer det vi ønsker. Vi bruker Enzyme for å lage en sha
 Vi fikk litt dårlig tid på slutten av prosjektet og fikk dermed ikke satt oss så mye inn i enhetstesting som vi ønsket. Vi skulle gjerne tatt i bruk mock og litt mer avanserte enhetstester
 enn det vi gjør, men dette er noe vi må se videre på ved senere prosjekter. Vi valgte derfor å prioritere end-to-end i dette prosjektet. 
 
+For å kjøre testene gå inn i frontend mappen og skriv:
+````
+npm test
+a
+````
 
 <img src="test.png" alt="Moviebiblotek" width="400" />
 
@@ -105,15 +110,20 @@ enn det vi gjør, men dette er noe vi må se videre på ved senere prosjekter. V
 
 # Installering <a name="Installering"></a>:
 
-1. Klon repoet med SSH/HTTP i ønsket lokasjon.
+1. Klon git repoet med SSH/HTTP i ønsket lokasjon.
 
-2. Lokaliser deg inn i frontend-mappen og skriv npm install 
+2. Lokaliser deg inn i prosjektmappen (project-3) og skriv 
+
+````
+npm install
+````
+
 3. Deretter lokaliser deg til backend mappen og kjør 
 
 ````
 npm run dev
 ````
-4. Gå deretter inn i frontend mappen og kjør 
+4. Åpne ny batsh deretter lokaliser deg inn i frontend mappen og kjør 
 
 ````
 npm start
