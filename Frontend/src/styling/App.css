@@ -1,0 +1,61 @@
+.searchbar {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 1%;
+  justify-content: center;
+}
+
+.searchbar_buttons {
+  margin-top: 5%;
+  justify-content: center;
+}
+
+.card {
+  width: 15%;
+}
+
+.movie_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+Moviebox {
+  padding: 20%;
+}
+
+.sidemenu {
+  height: auto;
+  width: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.filternav {
+  width: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 800px) {
+  filternav {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.pagination {
+  text-align: center;
+}
+
+.homepageHeader {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.heartLike {
+  justify-content: center;
+}
