@@ -14,7 +14,6 @@ import { store } from "./store/store";
 function App() {
   return (
     <div className="App">
-  
       <Router>
         <Header />
 
