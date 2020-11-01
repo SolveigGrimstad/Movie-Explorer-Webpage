@@ -25,6 +25,7 @@ på ulike sider man kan bla seg gjennom. Vi har satt default sorteringen som Rat
 rangerte filmene havner øverst. Både søk, filtrering og sortering fungerer om hverandre og man kan gjøre alle operasjonene samtidig dersom man ønsker et mer 
 spesifisert søk. 
 
+<img src="moviebib.png" alt="hei" width="600" />
 
 # Teknologi <a name="teknologi"></a>:
 
@@ -73,13 +74,12 @@ tillot kun å ta ut ca 900 filmer per dag, og vi tenkte dette ville holde for v�
 
 
 # Testing <a name="Testing"></a>:
+
+## Enhetstestning <a name="Enhetstesting"></a>:
 For enhetstesting har vi benyttet oss av Jest og Enzyme. Alle testene ligger under test mappen inne src. Vi har blant annet benyttet oss av expect i jest for å sjekke om en 
 fil inneholder og returnerer det vi ønsker. Vi bruker Enzyme for å lage en shallow rendering av komponentene vi ønsker å teste.Vi har også kjørt en snapshottest i homepage.test.tsx.
 Vi fikk litt dårlig tid på slutten av prosjektet og fikk dermed ikke satt oss så mye inn i enhetstesting som vi ønsket. Vi skulle gjerne tatt i bruk mock og litt mer avanserte enhetstester
 enn det vi gjør, men dette er noe vi må se videre på ved senere prosjekter. 
-
-
-## Enhetstestning <a name="Enhetstesting"></a>:
 
 ## End-2-end <a name="end-to-end"></a>:
 
