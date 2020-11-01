@@ -103,8 +103,24 @@ a
 
 
 ## End-2-end <a name="end-to-end"></a>:
+Vi valgte å bruke Cypress til end-2-end testing. Cypress ga oss gode tilbakebeldigner på tilsatanden til siden. Vi valgte å teste søk-funksjonen og bla i filmene. 
+Det er viktig å ha gode tester og for videre utvikling ville vi ha testet filter og sortering også. Testene ligger under ````Frontend/Cypress/Integration````
 
-**##SOLVEIG** skriv også hvordan man kjører testene sånn som vi har gjort på enhetstesting ovenfor
+For å kjøre testene, må både Frontend og Backend være startet med 
+````
+npm start
+````
+i Frontend-mappen, og
+````
+npm run dev
+````
+i Backend-mappen. I tillegg 
+````
+npm install cypress --save-dev
+node_modules\.bin\cypress open
+````
+i Frontendmappen.
+
 
 <img src="e2e1.png" alt="Moviebiblotek" width="400" />
 
