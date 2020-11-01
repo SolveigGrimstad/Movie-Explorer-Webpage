@@ -27,18 +27,30 @@ spesifisert søk.
 
 <img src="moviebib.png" alt="Moviebiblotek" width="600" />
 
+<img src="moviesearch.png" alt="Moviebiblotek" width="600" />
+
 # Teknologi <a name="teknologi"></a>:
 
 
 ### React <a name="react"></a>:
-Prosjektet er basert på React og har blitt initialisert med create-react-app. Vårt prosjekt er satt opp av ulike komponenter der alt blir satt sammen i App.tsx. Derifra er det en
-Router som bytter mellom hjemsiden og siden som viser alle filmene. Inne i content.tsx har vi alle filmene som skal vises, består blant annet av underkomponenter som moviebox som viser alle filmkomponentene, filternav som viser de ulike filtrene.
-Stylingen i dette prosjektet har vi prøvd å holde ganske enkel da det meste kom med Materialize. 
+Prosjektet er basert på React og har blitt initialisert med create-react-app. De funksjonelle komponentene og klassene er implementert ved hjelp av JSX og Typescript. 
+
+Vårt prosjekt er satt opp av ulike komponenter der alt blir satt sammen i App.tsx. Derfra er det en
+Router som bytter mellom hjemmesiden og siden som viser alle filmene. Inne i Content.tsx har vi alle filmene som skal vises, består blant annet av underkomponenter som moviebox som viser alle film-komponentene, filternav som viser de ulike filtrene. For å sende med ulike parametere fra databasen til ulike komponenter, har vi tatt i bruk props.
+
+Vi har i tillegg lagt til en funksjon som gjør at en bruker kan like en film. Dette er gjort med** ##SOLVEIG**
+
+Stylingen i dette prosjektet har vi prøvd å holde ganske enkel da det meste kom med Materialize. I tillegg har vi tatt i bruk flexbox og tabeller for å få alt til å ligge som vi ønsket. 
+
 
 ### Redux <a name="redux"></a>:
 Redux var noe medlemmene på gruppen ikke hadde vært borti før, så dette var noe vi ønsket å lære oss. Redux gir oss muligheten til å lagre verdier globalt slik at vi kan bruke verdiene ulike steder i applikasjonen vår.
 Dette var noe vi tok i bruk for å gjøre et filtrert søk. De ulike verdiene som brukeren ønsker å filtrere på, blir lagret i en liste som viser alle filmene med de aktuelle sjangerne. Dette blir gjort i store.tsx og ved 
 hjelp av en Reducer-funksjon som ligger i updateGenreFilter.ts som legger til nye filtre i listen. Ved å ta i bruk Redux Devtools, som er en extention i Google Chrome, kan vi nå sjekke om filtre som blir krysset av blir lagt i staten. 
+
+
+
+<img src="moviefilter.png" alt="Moviebiblotek" width="600" />
 
 ### REST API <a name="REST API"></a>:
 Vi implementerte et REST API med Node.js, Express og MongoDB som database. Løsningene er implementert ved hjelp av typescript og vi brukte [denne](https://levelup.gitconnected.com/setup-restful-api-with-node-js-express-mongodb-using-typescript-261959ef0998) guiden for å sette opp REST APIet. Vi bestemte oss for å bruke REST API istedenfor
@@ -57,6 +69,7 @@ Put brukes for å sende data til databasen, slik at når en bruker liker en film
 Inne i modules mappen finner man schema.ts ,model.ts(interfacet) og service.ts. Interfacet viser hvilken data vi ønsker å ha med fra databasen. 
 I service.ts og movieController.ts ligger alt av spørringer og logikk for søk, filtrering og sortering. I config mappen finner man app.ts 
 som blant annet tar for seg koblingen med databasen. 
+
 
 ### Tredjepartskomponenter <a name="komponenter"></a>:
 I denne prosjektet brukte vi Materialize som tredjepartskomponent da dette var noe vi hadde kjennskap til fra før. Her fikk vi gjenbrukt mye kode, og alt av design 
@@ -80,14 +93,61 @@ fil inneholder og returnerer det vi ønsker. Vi bruker Enzyme for å lage en sha
 Vi fikk litt dårlig tid på slutten av prosjektet og fikk dermed ikke satt oss så mye inn i enhetstesting som vi ønsket. Vi skulle gjerne tatt i bruk mock og litt mer avanserte enhetstester
 enn det vi gjør, men dette er noe vi må se videre på ved senere prosjekter. Vi valgte derfor å prioritere end-to-end i dette prosjektet. 
 
-## End-2-end <a name="end-to-end"></a>:
+For å kjøre testene gå inn i frontend mappen og skriv:
+````
+npm test
+a
+````
 
+<img src="test.png" alt="Moviebiblotek" width="400" />
+
+Gjennomgående testing av applikasjonen er viktig for å kunne sikre konsekvent funksjonalitet og responsivitet på forskjellige bruksenheter.
+## End-2-end <a name="end-to-end"></a>:
+Vi valgte å bruke Cypress til end-2-end testing. Cypress ga oss gode tilbakebeldigner på tilsatanden til siden. Vi valgte å teste søk-funksjonen og bla i filmene. 
+Det er viktig å ha gode tester for applikasjonen for å sikre konsekvenr funksjonalitet og responsivitet på forskjellige bruksenheter. For videre utvikling ville vi ha testet filter og sortering også. Testene ligger under ````Frontend/Cypress/Integration````
+
+For å kjøre testene, må både Frontend og Backend være startet med 
+````
+npm start
+````
+i Frontend-mappen, og
+````
+npm run dev
+````
+i Backend-mappen. I tillegg 
+````
+npm install cypress --save-dev
+node_modules\.bin\cypress open
+````
+i Frontendmappen.
+
+
+<img src="e2e1.png" alt="Moviebiblotek" width="400" />
+
+<img src="e2e2.png" alt="Moviebiblotek" width="400" />
 
 # Installering <a name="Installering"></a>:
+For å kunne kjøre prosjektet må man enten være koblet til NTNU nett eller NTNUs VPN. 
 
-1. Klon repoet med SSH/HTTP i ønsket lokasjon.
+1. Klon git repoet med SSH/HTTP i ønsket lokasjon.
 
-2. Lokaliser deg inn i frontend-mappen og skriv npm install etterfulgt av npm start
+2. Lokaliser deg inn i prosjektmappen (project-3) og skriv 
+
+````
+npm install
+````
+
+3. Deretter lokaliser deg til backend mappen og kjør 
+
+````
+npm run dev
+````
+4. Åpne ny batsh deretter lokaliser deg inn i frontend mappen og kjør 
+
+````
+npm start
+````
+
 
 # Bruk av git <a name="git"></a>:
 Under hele prosjektet har vi brukt git flittig. Hele prosjektet startet med å sette opp wireframes slik at vi alle var inneforstått med hvordan vi ønsket at siden skulle se ut.
@@ -113,4 +173,5 @@ vært litt mer beskrivende i forhold til hvilke funksjonalitet vi ønsket å imp
 
 * http://www.omdbapi.com/
 * https://levelup.gitconnected.com/setup-restful-api-with-node-js-express-mongodb-using-typescript-261959ef0998
+* https://www.youtube.com/watch?v=Tqe0Knpt6lY&t=5s  
 
