@@ -154,4 +154,5 @@ vært litt mer beskrivende i forhold til hvilke funksjonalitet vi ønsket å imp
 
 * http://www.omdbapi.com/
 * https://levelup.gitconnected.com/setup-restful-api-with-node-js-express-mongodb-using-typescript-261959ef0998
+* https://www.youtube.com/watch?v=Tqe0Knpt6lY&t=5s  
 
