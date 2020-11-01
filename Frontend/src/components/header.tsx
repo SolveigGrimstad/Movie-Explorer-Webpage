@@ -6,9 +6,11 @@ function Header() {
     <div className="navbar-fixed">
       <nav>
         <div className="nav-wrapper deep-purple">
-          <a href="#" className="center brand-logo">
-            MovieSelector
-          </a>
+          <Link to="/">
+            <a href="#" className="center brand-logo">
+              MovieSelector
+            </a>
+          </Link>
           <ul id="nav-mobile " className="hand-on-med-and-down">
             <li>
               <Link to="/">Home</Link>
