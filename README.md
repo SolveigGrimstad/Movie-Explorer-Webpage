@@ -130,19 +130,19 @@ i Frontendmappen.
 For å kunne kjøre prosjektet må man enten være koblet til NTNU nett eller NTNUs VPN. 
 
 1. Klon git repoet med SSH/HTTP i ønsket lokasjon.
+2. Lokaliser deg til backend mappen og kjør 
 
-2. Lokaliser deg inn i prosjektmappen (project-3) og skriv 
+````
+npm run dev
+````
+
+3. Deretter lokaliser deg inn i frontendmappen og skriv 
 
 ````
 npm install
 ````
 
-3. Deretter lokaliser deg til backend mappen og kjør 
-
-````
-npm run dev
-````
-4. Åpne ny batsh deretter lokaliser deg inn i frontend mappen og kjør 
+4. Kjør til slutt:  
 
 ````
 npm start
