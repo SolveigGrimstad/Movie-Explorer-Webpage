@@ -133,6 +133,7 @@ For å kunne kjøre prosjektet må man enten være koblet til NTNU nett eller NT
 2. Lokaliser deg til backend mappen og kjør 
 
 ````
+npm install
 npm run dev
 ````
 
@@ -140,11 +141,7 @@ npm run dev
 
 ````
 npm install
-````
 
-4. Kjør til slutt:  
-
-````
 npm start
 ````
 
