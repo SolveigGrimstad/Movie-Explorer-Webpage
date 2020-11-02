@@ -38,7 +38,7 @@ Prosjektet er basert på React og har blitt initialisert med create-react-app. D
 Vårt prosjekt er satt opp av ulike komponenter der alt blir satt sammen i App.tsx. Derfra er det en
 Router som bytter mellom hjemmesiden og siden som viser alle filmene. Inne i Content.tsx har vi alle filmene som skal vises, består blant annet av underkomponenter som moviebox som viser alle film-komponentene, filternav som viser de ulike filtrene. For å sende med ulike parametere fra databasen til ulike komponenter, har vi tatt i bruk props.
 
-Vi har i tillegg lagt til en funksjon som gjør at en bruker kan like en film. Dette er gjort med ##SOLVEIG
+Vi har i tillegg lagt til en funksjon som gjør at en bruker kan like en film.  Hver gang en bruker klikker på hjertet blir det gjort et axios-kall og bruker app.put for å oppdatere databasen. 
 
 Stylingen i dette prosjektet har vi prøvd å holde ganske enkel da det meste kom med Materialize. I tillegg har vi tatt i bruk flexbox og tabeller for å få alt til å ligge som vi ønsket. 
 
@@ -93,27 +93,56 @@ fil inneholder og returnerer det vi ønsker. Vi bruker Enzyme for å lage en sha
 Vi fikk litt dårlig tid på slutten av prosjektet og fikk dermed ikke satt oss så mye inn i enhetstesting som vi ønsket. Vi skulle gjerne tatt i bruk mock og litt mer avanserte enhetstester
 enn det vi gjør, men dette er noe vi må se videre på ved senere prosjekter. Vi valgte derfor å prioritere end-to-end i dette prosjektet. 
 
+For å kjøre testene gå inn i frontend mappen og skriv:
+````
+npm test
+a
+````
 
 <img src="test.png" alt="Moviebiblotek" width="400" />
 
-
+Gjennomgående testing av applikasjonen er viktig for å kunne sikre konsekvent funksjonalitet og responsivitet på forskjellige bruksenheter.
 ## End-2-end <a name="end-to-end"></a>:
+Vi valgte å bruke Cypress til end-2-end testing. Cypress ga oss gode tilbakebeldigner på tilsatanden til siden. Vi valgte å teste søk-funksjonen og bla i filmene. 
+Det er viktig å ha gode tester for applikasjonen for å sikre konsekvenr funksjonalitet og responsivitet på forskjellige bruksenheter. For videre utvikling ville vi ha testet filter og sortering også. Testene ligger under ````Frontend/Cypress/Integration````
+
+For å kjøre testene, må både Frontend og Backend være startet med 
+````
+npm start
+````
+i Frontend-mappen, og
+````
+npm run dev
+````
+i Backend-mappen. I tillegg 
+````
+npm install cypress --save-dev
+node_modules\.bin\cypress open
+````
+i Frontendmappen.
+
 
 <img src="e2e1.png" alt="Moviebiblotek" width="400" />
 
 <img src="e2e2.png" alt="Moviebiblotek" width="400" />
 
 # Installering <a name="Installering"></a>:
+For å kunne kjøre prosjektet må man enten være koblet til NTNU nett eller NTNUs VPN. 
 
-1. Klon repoet med SSH/HTTP i ønsket lokasjon.
-
-2. Lokaliser deg inn i frontend-mappen og skriv npm install 
-3. Deretter lokaliser deg til backend mappen og kjør 
+1. Klon git repoet med SSH/HTTP i ønsket lokasjon.
+2. Lokaliser deg til backend mappen og kjør 
 
 ````
 npm run dev
 ````
-4. Gå deretter inn i frontend mappen og kjør 
+
+3. Deretter lokaliser deg inn i frontendmappen og skriv 
+
+````
+npm install
+````
+
+4. Kjør til slutt:  
 
 ````
 npm start
@@ -144,4 +173,5 @@ vært litt mer beskrivende i forhold til hvilke funksjonalitet vi ønsket å imp
 
 * http://www.omdbapi.com/
 * https://levelup.gitconnected.com/setup-restful-api-with-node-js-express-mongodb-using-typescript-261959ef0998
+* https://www.youtube.com/watch?v=Tqe0Knpt6lY&t=5s  
 
