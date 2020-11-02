@@ -18,8 +18,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "ts-node ./lib/server.ts",
-    "dev": "tsc && nodemon ./dist/server.js",
-    "prod": "tsc && nodemon ./dist/server.js"
+    "dev": "nodemon ./dist/server.js",
+    "prod": "nodemon ./dist/server.js"
   },
   "author": "Maud",
   "license": "ISC"
