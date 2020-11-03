@@ -141,7 +141,6 @@ npm run dev
 
 ````
 npm install
-
 npm start
 ````
 
